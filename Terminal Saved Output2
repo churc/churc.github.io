@@ -1,0 +1,55 @@
+Last login: Wed Dec  2 09:00:44 on ttys000
+Clares-MacBook-Pro:~ clarec$ cd Desktop
+Clares-MacBook-Pro:Desktop clarec$ cd churc.github.io
+Clares-MacBook-Pro:churc.github.io clarec$ python -m SimpleHTTPServer
+Serving HTTP on 0.0.0.0 port 8000 ...
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/yearsAMISMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/AMI_SMI_SUD_totals_year.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/BelowFPL.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/BelowFPLSMI.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/yearsAMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/AMI%20by%20Region%20Map.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/BelowFPLBar.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /Images/insurance.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:09:45] "GET /stylesheet.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /stylesheet.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/yearsAMISMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/AMI_SMI_SUD_totals_year.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/BelowFPL.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/BelowFPLSMI.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/yearsAMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/AMI%20by%20Region%20Map.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/BelowFPLBar.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:36] "GET /Images/insurance.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /stylesheet.css HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/yearsAMISMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/AMI_SMI_SUD_totals_year.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/BelowFPL.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/BelowFPLSMI.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/yearsAMItotalarea.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/AMI%20by%20Region%20Map.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/BelowFPLBar.png HTTP/1.1" 200 -
+127.0.0.1 - - [02/Dec/2015 09:12:38] "GET /Images/insurance.png HTTP/1.1" 200 -
+Clares-MBP:churc.github.io clarec$ git add –A  
+Clares-MBP:churc.github.io clarec$ git commit -m 'added images'
+Clares-MBP:churc.github.io clarec$ git push
+^CTraceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/runpy.py", line 162, in _run_module_as_main
+    "__main__", fname, loader, pkg_name)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/runpy.py", line 72, in _run_code
+    exec code in run_globals
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SimpleHTTPServer.py", line 235, in <module>
+    test()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SimpleHTTPServer.py", line 231, in test
+    BaseHTTPServer.test(HandlerClass, ServerClass)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 599, in test
+    httpd.serve_forever()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 236, in serve_forever
+    poll_interval)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 155, in _eintr_retry
+    return func(*args)
+KeyboardInterrupt
+Clares-MacBook-Pro:churc.github.io clarec$ 
