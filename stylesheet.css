@@ -2,9 +2,12 @@ body{
 	width:760px;
 	margin:40px auto;
 	font-family: Helvetica;
-	margin-bottom:20px;
-	padding-bottom:20px;
-	background-color: #6B6D69;
+	padding-top: 60px;
+	padding-right: 30px;
+	margin-bottom:30px;
+	padding-bottom:30px;
+    padding-left: 30px;
+	background-color: #FFFFFF;
 }
 h1{
 	border-bottom:1px solid #dedede;
