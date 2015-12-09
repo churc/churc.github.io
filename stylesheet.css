@@ -4,10 +4,18 @@ body{
 	font-family: Helvetica;
 	margin-bottom:20px;
 	padding-bottom:20px;
+	background-color: #6B6D69;
 }
 h1{
 	border-bottom:1px solid #dedede;
 	margin-bottom:20px;
+	padding-bottom:20px;
+}
+h2{
+
+    text-align: center;
+    color: #6B6D69;
+    margin-bottom:20px;
 	padding-bottom:20px;
 }
 div{
