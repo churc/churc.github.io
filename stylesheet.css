@@ -4,10 +4,10 @@ body{
 	font-family: Helvetica;
 	padding-top: 60px;
 	padding-right: 30px;
-	margin-bottom:30px;
-	padding-bottom:30px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
     padding-left: 30px;
-	background-color: #dedede;
+	background-color: #FFFFFF;
 }
 h1{
 	border-bottom:1px solid #dedede;
@@ -17,12 +17,12 @@ h1{
 h2{
     text-align: center;
     color: #6B6D69;
-    border-bottom:1px solid #dedede;
-    margin-bottom:20px;
-	padding-bottom:20px;
+    border-bottom:1px solid #FFFFFF;
+    margin-bottom:10px;
+	padding-bottom:10px;
 }
 div{
-	background-color: white;
+	background-color: #dedede;
 	border-bottom:30px;
 	margin-bottom:30px;
 	padding-bottom:30px;
@@ -32,8 +32,9 @@ img{
 	height: 100%;
 	width: 100%;
 	display:block;
-margin-left:30px;
-margin-right:30px;
+padding-top: 10px;
+margin-left:10px;
+margin-right:10px;
 margin-bottom:40px;
 padding-bottom:40px;
 }
