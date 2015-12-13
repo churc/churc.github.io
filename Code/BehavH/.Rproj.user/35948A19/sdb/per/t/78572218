@@ -1,0 +1,17 @@
+{
+    "contents" : "require('ggplot2')\nrequire('dplyr')\nrequire('tidyr')\nrequire('lubridate')\nrequire(extrafont)\nsource('cctheme.R')\n\nBH<-read.csv(\"AMI_NSDUHStates2013thous.csv\")\nstringsAsFactor= FALSE\nhead (BH)\nstr(BH)\nBH1<-select(BH, State, X18orOlder)\nhead(BH1)\n\nAMI<-read.csv(\"SAMHSAcleanAMIYr.csv\")\nstringsAsFactor= FALSE\nhead(AMI)\n\nStatepop<-read.csv(\"ACS_14_1YR_DP05_agenoperc18c.csv\")\nstringsAsFactor= FALSE\nhead(Statepop)\nStatepop2<-gather(Statepop, states, number, Alabama:Puerto.Rico)\nhead(Statepop2)\nStatepop2b<-select(Statepop2[1:51,], states, number)\nhead(Statepop2b)\n\n#map state numbers_bring in states long lat for mapping\nstates<-readOGR(dsn='cb_2014_us_state_20m', layer = 'cb_2014_us_state_20m')\nhead(states)\n#fortify takes polygon shape and forms the lat long - always have to fortify\nstates2<-fortify(states, region = 'NAME')\nhead(states2)\n#join BH1 and states for mapping\nBH2<-left_join(BH1, states2, by=c('State'='id'))\nhead(BH2)\n\n#for PLOTTING join BH1 (don't need lat long) and Statepop2b with 51 states\nBH3pop<-left_join(BH1, Statepop2b, by=c('State'='states'))\nhead(BH3pop)\n#to get rates per state new column with percent AMI per state \nBH4pop<-mutate(BH3pop, percent=X18orOlder/number*100)\nhead(BH4pop)\n\n#chart the state NUMBERS - note this is NOT rate \nchart<-ggplot(BH4pop, aes(reorder(x=State,X18orOlder), y=X18orOlder))+\n  geom_bar(stat=\"identity\", width=0.15, na.rm=TRUE, color = \"blue\")+\n  coord_flip()+\n  ylab(\"Thousands\")+\n  xlab(\"\")+\n  cctheme+\n  theme(axis.text=element_text(size=rel(.8)), title=element_text(size=rel(0.65)))+\n  ggtitle(\"Number with Any Mental Illness in Last 12 Months by State, Ages 18 and Older\") \nprint(chart)\nggsave(\"draftchart.pdf\", width = 10, height = 5)\n\n#plot PERCENT AMI per state \nchartpercent<-ggplot(BH4pop, aes(reorder(x=State, percent), y=percent))+\n  geom_bar(stat=\"identity\", width=0.3, na.rm=TRUE, fill='red')+\n  coord_flip()+\n  ylab(\"Percent\")+\n  xlab(\"\")+\n  cctheme+\n  theme(axis.text=element_text(size=rel(.8)), title=element_text(size=rel(0.6)))+\n  ggtitle(\"Percent of Any Mental Illness in Last 12 Months by State, 18 and Older\") \nprint(chartpercent)\nggsave(\"chartpercent.pdf\", width = 10, height = 5)\n",
+    "created" : 1449986309271.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3928689662",
+    "id" : "78572218",
+    "lastKnownWriteTime" : 1449986605,
+    "path" : "~/Documents/ccinflux/Documents/Data Vis Info/Homework/Final project/BH/BH/BehavH/BH.R",
+    "project_path" : "BH.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : true,
+    "type" : "r_source"
+}

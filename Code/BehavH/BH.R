@@ -1,0 +1,66 @@
+require('ggplot2')
+require('dplyr')
+require('tidyr')
+require('lubridate')
+require(extrafont)
+source('cctheme.R')
+
+BH<-read.csv("AMI_NSDUHStates2013thous.csv")
+stringsAsFactor= FALSE
+head (BH)
+str(BH)
+BH1<-select(BH, State, X18orOlder)
+head(BH1)
+
+AMI<-read.csv("SAMHSAcleanAMIYr.csv")
+stringsAsFactor= FALSE
+head(AMI)
+
+Statepop<-read.csv("ACS_14_1YR_DP05_agenoperc18c.csv")
+stringsAsFactor= FALSE
+head(Statepop)
+Statepop2<-gather(Statepop, states, number, Alabama:Puerto.Rico)
+head(Statepop2)
+Statepop2b<-select(Statepop2[1:51,], states, number)
+head(Statepop2b)
+
+#map state numbers_bring in states long lat for mapping
+states<-readOGR(dsn='cb_2014_us_state_20m', layer = 'cb_2014_us_state_20m')
+head(states)
+#fortify takes polygon shape and forms the lat long - always have to fortify
+states2<-fortify(states, region = 'NAME')
+head(states2)
+#join BH1 and states for mapping
+BH2<-left_join(BH1, states2, by=c('State'='id'))
+head(BH2)
+
+#for PLOTTING join BH1 (don't need lat long) and Statepop2b with 51 states
+BH3pop<-left_join(BH1, Statepop2b, by=c('State'='states'))
+head(BH3pop)
+#to get rates per state new column with percent AMI per state 
+BH4pop<-mutate(BH3pop, percent=X18orOlder/number*100)
+head(BH4pop)
+
+#chart the state NUMBERS - note this is NOT rate 
+chart<-ggplot(BH4pop, aes(reorder(x=State,X18orOlder), y=X18orOlder))+
+  geom_bar(stat="identity", width=0.15, na.rm=TRUE, color = "blue")+
+  coord_flip()+
+  ylab("Thousands")+
+  xlab("")+
+  cctheme+
+  theme(axis.text=element_text(size=rel(.8)), title=element_text(size=rel(0.65)))+
+  ggtitle("Number with Any Mental Illness in Last 12 Months by State, Ages 18 and Older") 
+print(chart)
+ggsave("draftchart.pdf", width = 10, height = 5)
+
+#plot PERCENT AMI per state 
+chartpercent<-ggplot(BH4pop, aes(reorder(x=State, percent), y=percent))+
+  geom_bar(stat="identity", width=0.3, na.rm=TRUE, fill='red')+
+  coord_flip()+
+  ylab("Percent")+
+  xlab("")+
+  cctheme+
+  theme(axis.text=element_text(size=rel(.8)), title=element_text(size=rel(0.6)))+
+  ggtitle("Percent of Any Mental Illness in Last 12 Months by State, 18 and Older") 
+print(chartpercent)
+ggsave("chartpercent.pdf", width = 10, height = 5)
