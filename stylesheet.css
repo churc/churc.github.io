@@ -23,6 +23,10 @@ h2{
 }
 div{
 	background-color: #dedede;
+	margin-top: 30px;
+	padding-top: 30px;
+	padding-left: 60px;
+	padding-right: 60px;
 	border-bottom:30px;
 	margin-bottom:30px;
 	padding-bottom:30px;
@@ -32,9 +36,8 @@ img{
 	height: 100%;
 	width: 100%;
 	display:block;
+margin-top: 10px;
 padding-top: 10px;
-margin-left:10px;
-margin-right:10px;
 margin-bottom:40px;
 padding-bottom:40px;
 }
