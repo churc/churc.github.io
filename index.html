@@ -601,6 +601,60 @@
   
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false&v=3.8"></script>
   
+  
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      
+      google.charts.setOnLoadCallback(drawChart2);
+      
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Counties', 'Number'],
+          ['Counties within 20 miles of an ACO',     199],
+          ['Counties not within 20 miles of an ACO',  939],
+          ['',  0],
+          ['', 0],
+          ['',    0]
+        ]);
+
+        var options = {
+          title: 'Poverty Rates Greater Than 18.2% & Medicare ACO locations',
+          pieHole: 0.4,
+          width:400,
+          legend:'left',
+          colors: ['#f6c7b6', '#e0440e', '#f3b49f', ]
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart_div'));
+        chart.draw(data, options);
+      }
+    
+      
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Poverty Rate', 'Number'],
+          ['Mid poverty',  896],
+          ['High poverty', 43],
+          ['', 0],
+          ['',    0]
+        ]);
+
+        var options = {
+          title: 'Breakdown of County Mid/High Poverty Not Within 20 Miles of a Medicare ACO',
+          pieHole: 0.4,
+          width:400,
+          legend:'left',
+          colors: ['#ADE7F7', '#3798DE','#f6c7b6', ]
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart2_div'));
+        chart.draw(data, options);
+      }
+    </script>  
+ 
  
 <script type="infowindow/html" id="infowindow_template"></script> 
 
@@ -743,14 +797,33 @@ This equates as:
 <ul>
   <li>199 (17.49%) mid and high poverty level counties (poverty 18.2% - 52.6%), out of a total of 1,138 have a Medicare ACOs within 20 miles.</li>  
   <li>939 (82.51%) mid and high poverty counties (poverty 18.2% - 52.6%) do not have a Medicare ACO within 20 miles.</li> 
-  Of the 939 counties without a Medicare ACO within 20 miles:</p>
-      <li>43 (4.58%) are high poverty counties (poverty 35.4% - 52.6%).</li>
+</ul>
+</p>
+<p>
+  
+  Of the 939 counties without a Medicare ACO within 20 miles:
+  <ul>
+    <li>43 (4.58%) are high poverty counties (poverty 35.4% - 52.6%).</li>
       <li>896 (95.42%) are mid poverty counties (poverty 18.2% - 35.4%).</li>
 
-    </ul>
+</ul></p>
+<p>
 <strong>Map 1</strong> details the locations of the 433 Medicare ACOs. A clip of the mid and high level poverty counties which are over 20 miles from a Medicare ACO location show where higher levels of need by county are without resources of a Medicare Accountable Care Organization. 
 The selectors on the right hand side enable choice of Medicare ACOs by size, by ACO track (1, 2, or 3), or by ACO agreement type (initial and renewal). Details on each organization can be found by clicking on the map's ACO locations; zoom is set to 18 for local area details.
-       </p>  
+       </p> 
+
+
+ <table class="columns">
+      <tr>
+        <tr>
+          <td><div id="donutchart_div" style=""></div></td>
+
+   <td><div id="donutchart2_div" style=""></div></td>
+   </tr>
+</table>
+
+
+
 <h4>Medicare ACO data:</h4>
  <p> The Medicare Accountable Care Organization (ACO) data is from The Centers for Medicare and Medicaid Services (CMS), part of the Department of Health and Human Services: <a href='https://data.cms.gov/ACO/2016-Medicare-Shared-Savings-Program-Organizations/5kdu-cnmy'>2016 Medicare ACO data</a> which lists 433 ACOs in the United States as of February 2016:
           <div><iframe width="500px" title="2016 Medicare Shared Savings Program Organizations" height="425px" src="https://data.cms.gov/w/5kdu-cnmy/vmsd-2w5m?cur=qvf2yBispOb&from=root" frameborder="0"scrolling="no"><a href="https://data.cms.gov/ACO/2016-Medicare-Shared-Savings-Program-Organizations/5kdu-cnmy" title="2016 Medicare Shared Savings Program Organizations" target="_blank">2016 Medicare Shared Savings Program Organizations</a></iframe><p style="border-bottom:0px;margin-bottom:0px;padding-bottom:0px; "><h6 style="text-align:0px; margin-top:0px; ">Socrata</h6></p></div>
@@ -973,8 +1046,8 @@ The selectors on the right hand side enable choice of Medicare ACOs by size, by 
     <div class="row">
       <div class="col span2 empty"><p></p></div>
       <div class="col span12 context footer">
-        <p>Maps created in <a href="http://cartodb.com">CartoDB</a></p>
-      <p style="padding-top: 0px;margin-top:0px;">Basemaps created in <a href="https://www.mapbox.com/mapbox-studio/">Mapbox</a></p>
+        <p>Maps created in <a href="http://cartodb.com">CartoDB, </a>Basemaps created in <a href="https://www.mapbox.com/mapbox-studio/">Mapbox</a></p>
+        <p style="padding-top: 0px;margin-top:0px;">Geocoding at <a href="http://www.findlatitudeandlongitude.com/batch-geocode/">Batch Geocode</a></p>
       </div>      
       <div class="col span2 empty"><p></p></div>
     </div>
