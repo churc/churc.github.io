@@ -34,7 +34,8 @@ body {
 */
 
 h1, h2, h3, h4, h5, h6 {
-    color: #fefcdc;
+	font-family: "Courier";
+    color: #ddccdd;
     font-weight: 600;
     line-height: 1.3em;
 }
@@ -49,12 +50,6 @@ h2 {
     margin-top: 2.3em;
 }
 
-container {
-    background-color: lightblue;
-}
-
-button {
-	background-color: palegreen;
 	
 }
 .col{
@@ -67,11 +62,10 @@ background-color: lightblue;
 overflow: hidden; 
 }  
 
-background{
-	background-color: rgb(232, 219, 122)
-}
+
 .menuLink {
   color:blue;
   text-decoration:underline;
+  font-size:16px;
 }
 
