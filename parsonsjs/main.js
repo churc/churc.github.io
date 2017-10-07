@@ -140,9 +140,7 @@ function choice(arr){
 //“_You_ want to tell me, and I have no objection to hearing it.”
 //
 //markov.loadText(text)
-//
-//
-//
+
 //function choice(arr){
 //  return arr[Math.floor(Math.random() * arr.length)]
 //}
