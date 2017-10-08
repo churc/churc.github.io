@@ -9,46 +9,56 @@
 <style>
 	
   body {
-    background: #c0f5b4;
-	max-width: 90%;
+    background: #e6e9e7;
+	margin-left: 40px;
+	margin-right: 40px;
 	background-position: center;
 	display: block;
 	vertical-align:middle;
-/*	margin-left: 50px;*/
+	max-height: 4000px;
   }
 	
   button {
     font-size: 20px;
     margin: 8px;
-	margin-left: 18px;
-	background-color: #35faf3;
+/*	margin-left: 18px;*/
+	background-color: #e6f6fd;
+	display: block;
+	vertical-align: center;
+	left: 15%;
+	position: fixed;
+	-moz-transition: top 0.2s;
+ 	-o-transition: top 0.2s;
+ 	-webkit-transition: top 0.2s;
   }
 	
 .menuLink {
-  color:blue;
+  color:deepskyblue;
   text-decoration:underline;
-  font-size: 23px;
-  margin-left: 50px;
+  font-size: 20px;
+  margin-left: 10px;
 }
 	
+/*
   div {
-/*    color: red;*/
     font-weight: bold;
   }
+*/
 	
  </style>
 	
 <!-- menu change-->
 
-	<h1 style= "padding-top: 30px; font-size: 40px" ><em>uncertainty</em></h1>
+	<h1 style= "padding-top: 40px;
+   padding-bottom: 40px; font-size: 35px" ><em>uncertainty</em></h1>
 
-<nav>
+<nav style="text-align:center">
   <span class='menuLink'>uncertainty</span>
-  <span class='menuLink'>to</span>
+  <span class='menuLink'>could</span>
   <span class='menuLink redLink'>be</span>
   <span class='menuLink'>or</span>
-  <span class='menuLink'>not</span>
-  <span class='menuLink redLink'>to</span>
+  <span class='menuLink'>may</span>
+  <span class='menuLink redLink'>not</span>
   <span class='menuLink'>be</span>
 </nav>
 	
@@ -63,9 +73,8 @@
 	
 	
 <script src='jquery-3.2.1.min.js'></script>
-
 <script src='tracery.js'></script>
-<script src='rita-full-min.js'></script>
+<script src='rita-full.min.js'></script>
 <script src='rita-full.js'></script>
 <script src="main.js"></script>
 </head>
@@ -75,9 +84,13 @@
 <!--text generator change -->
 	<div>	
 <!--<h1 style=color:turquoise, -->
-	<h1 style= "color: #E84122; padding-top: 30px" >The placement of an object or shape may affect the sense of uncertainty</h1>
+		
+<h1 style= "color: #484948; padding-top: 20px; font-size: 22px; text-align: center">The placement of an object or shape may affect the sense of uncertainty</h1>
+
 <button onclick=generate()>sentences</button>	
-</div>	
+
+	</div>
+	<p></p>
 
 	
 	
@@ -119,13 +132,37 @@
 	
 <!--random rhymes w rita-->
 	<div>
+<!--
+
+<!--
+	<h2 id="1" .mouseenter()>A work of art is </h2>
+<h2 id="2" .hover()>Or a piece of art is </h2>
+
+<h2 id="1">A work of art is </h2>
+<h2 id="2">Or a piece of art is </h2>
+-->
+
+<!--try button:last-->
+<!--		not working RiTa random -->
+
+<h2 id="1" hover=writing()>Or a piece of art is </h2>
+		
+<h2 id="2" hover=writing()>A work of art is </h2>	
+
+<button hover=writing()>Generate</button>
+
+<!--	text change-->
+
+<!--
 	<h2 id="1" .hover()>A work of art is </h2>
 <h2 id="2" .hover()>Or a piece of art is </h2>
+-->
 <!--
      <checkbox hover()='writing()'>write</checkbox>
 	</div>
 -->
 <!--	text change-->
+
 
 <!--<h3>This Just In: <span class='topic'>Javascript</span> is fun</h3>
 
@@ -136,11 +173,12 @@
 <p>A production of <span id='companyName'>Good Ideas Inc</span> </p>-->
 
 	</div>
+<!--
 </body>
 
 
-<!-- Bootstrap CSS -->
-<!--
+ Bootstrap CSS 
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 	
 <style> body {
@@ -160,16 +198,17 @@
 		
 	
 <div class="col-md-6">
+-->
 		
 
 	
-</div>
-	-->	
+<!--</div>-->
+		
 <!--
 <script>
 
 	</script>-->
 
-<!--</body>-->
+</body>
 	
 </html>

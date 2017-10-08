@@ -2,12 +2,24 @@
 var grammarObj = { "S":["The #placement# of an #object# or #shape# may affect the sense of #uncertainty#"],"placement":["high", "low", "right", "left", "small", "falling off","up","down","inside","outside"],"object":["animal", "iglow", "elephant", "ear", "eye", "anteater","antelope","ant","arm"],"shape":["circle", "dot", "plane", "area", "blob", "line","splat","drip","pour"],"uncertainty":["uncertainty", "unease", "anxiety", "emptiness", "chaos", "confusion","oddness","offcenteredness","strangeness"]
 }
 
-var grammar = tracery.createGrammar(grammarObj)
+var grammar =tracery.createGrammar(grammarObj)
 
 function generate(){
 	var t = grammar.flatten("#S#");
 	$('h1').text(t);
 }
+
+//works to move button
+
+$(document).ready(function(generate) {
+ $('button').on('click', function() {
+ ($(this).animate({'top': '-=15px'},'fast')
+  );
+ ($(this).animate({'top': '+=2px'}, 'fast')
+ );
+});
+});
+
 
 //try change images using choice
 
@@ -39,18 +51,19 @@ function myFunction(){
 }
 $('nav span').hover(function(){
   console.log($(this).css('color'))
-  if($(this).css('color') == "rgb(0, 0, 255)"){
-    $(this).css('color', 'darkgrey')
+  if($(this).css('color') == 'deepskyblue'){
+    $(this).css('color', '#29d8e3')
   } else {
     $(this).css('color', 'blue')
   }
 })
+
 $('nav span').click(function(){
-  if($(this).text() == '??!'){
+  if($(this).text() == '???'){
     $(this).text($(this).attr('data-original'))
   } else{
     $(this).attr('data-original', $(this).text())
-  $(this).text('??!')
+  $(this).text('???')
   }
   
 })
@@ -112,6 +125,23 @@ function comp(arr){
 //
 //markov.loadText(texts)
 
+
+//random rhymes not working 
+//
+var randWord;
+function writing() {
+  randWord = RiTa.randomWord('nn')
+  while(RiTa.rhymes(randWord).length<1){
+    randWord = RiTa.randomWord('nn')
+	
+	$(randWord).on('hover', 'h2', writing);
+   console.log(randWord)
+	  
+  }
+  $('#1').tx('A work of art is ' + randWord)
+  $('#2').tx('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
+}
+
 //random rhymes
 //
 //ar randWord;
@@ -124,6 +154,5 @@ function comp(arr){
 //  $('#1').tx('A work of art is ' + randWord)
 //  $('#2').tx('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
 //}
-
 
 
