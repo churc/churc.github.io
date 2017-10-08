@@ -1,22 +1,32 @@
 
-html, body {
+html {
   margin: 20;
   padding: 40;
   height: 100%;
   width: 100%;
-  background-color: blue;
+  background-color: #ad3c04;
   font-family: "Courier";
   font-size: 16px;
   line-height: 1.5em;
-  color: #545454;	
+  color: #545454;
 }
 
+body {
+/*	margin: 20;*/
+/*  	padding: 40;*/
+  	height: 100%;
+  	background-color: #ad3c04;
+  	font-family: "Courier";
+  	font-size: 16px;
+  	line-height: 1.5em;
+}
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Courier";
     color: #ddccdd;
     font-weight: 600;
     line-height: 1.3em;
+	margin: 20px;
 }
 
 h1 {
@@ -29,10 +39,31 @@ h2 {
     margin-top: 2.3em;
 }
 
+div { 
+    background-position: center; 
+    margin-left: 30px;
+}
+        
+a {
+    color: blue; 
+    font-family: Courier; 
+    font-size: 17px; 
+}
+        
+img {
+     padding:40px; 
+     display: block;
+	 margin: auto;
+     max-width: 80%;
+     height: auto;
+}
+
 
 .col-wrap{
 	overflow: hidden; 
 }  
+
+
 
 
 

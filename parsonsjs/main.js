@@ -1,5 +1,5 @@
 //THIS WORKS generation of text sentences works
-var grammarObj = { "S":["The #placement# of an #object# or #shape# may affect the sense of #uncertainty#"],"placement":["high", "low", "right", "left", "small", "falling off"],"object":["animal", "iglow", "elephant", "ear", "eye", "anteater"],"shape":["circle", "dot", "plane", "area", "blob", "line"],"uncertainty":["uncertainty", "unease", "anxiety", "emptiness", "chaos", "confusion"]
+var grammarObj = { "S":["The #placement# of an #object# or #shape# may affect the sense of #uncertainty#"],"placement":["high", "low", "right", "left", "small", "falling off","up","down","inside","outside"],"object":["animal", "iglow", "elephant", "ear", "eye", "anteater","antelope","ant","arm"],"shape":["circle", "dot", "plane", "area", "blob", "line","splat","drip","pour"],"uncertainty":["uncertainty", "unease", "anxiety", "emptiness", "chaos", "confusion","oddness","offcenteredness","strangeness"]
 }
 
 var grammar = tracery.createGrammar(grammarObj)
@@ -111,5 +111,19 @@ function comp(arr){
 //var texts="chapter 1 Mr made no answer. Do you not want to know who has taken it?” cried his wife impatiently. You  want to tell me, and I have no objection to hearing it."
 //
 //markov.loadText(texts)
+
+//random rhymes
+//
+//ar randWord;
+//function writing() {
+//  randWord = RiTa.randomWord('nn')
+//  while(RiTa.rhymes(randWord).length<1){
+//    randWord = RiTa.randomWord('nn')
+//    console.log(randWord)
+//  }
+//  $('#1').tx('A work of art is ' + randWord)
+//  $('#2').tx('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
+//}
+
 
 
