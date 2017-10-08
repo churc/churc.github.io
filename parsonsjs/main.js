@@ -15,7 +15,7 @@ $(document).ready(function(generate) {
  $('button').on('click', function() {
  ($(this).animate({'top': '-=15px'},'fast')
   );
- ($(this).animate({'top': '+=2px'}, 'fast')
+ ($(this).animate({'top': '+=6px'}, 'fast')
  );
 });
 });
