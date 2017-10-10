@@ -4,7 +4,8 @@ html {
   padding: 40;
   height: 100%;
   width: 100%;
-  background-color: #a84e1d;
+/*  background-color: #a84e1d;*/
+background-color: lightyellow;
   font-family: "Courier";
   font-size: 16px;
   line-height: 1.5em;
@@ -12,7 +13,6 @@ html {
 }
 
 body {
-  	height: 100%;
   	background-color: #ad3c04;
   	font-family: "Helvetica";
   	font-size: 16px;
@@ -55,6 +55,7 @@ a {
         
 img {
      padding:40px;
+	 padding-top: 40px;
 	 padding-top: 40px;
      display: block;
 	 margin: auto;

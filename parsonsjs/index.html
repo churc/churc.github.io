@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>uncertainty</title>
     <!-- Required meta tags -->
 
   <meta charset="utf-8">
@@ -27,9 +28,9 @@
 	vertical-align: center;
 	left: 15%;
 	position: relative;
-	-moz-transition: top 0.2s;
- 	-o-transition: top 0.2s;
- 	-webkit-transition: top 0.2s;
+	-moz-transition: none;
+ 	-o-transition: none;
+ 	-webkit-transition: none;
   }
 	
 .menuLink {
@@ -39,11 +40,16 @@
   margin-left: 10px;
 }
 	
-/*
+#canvas {
+  height: auto;
+  display: block;
+  vertical-align: center;
+  left: -15%;
+}
+	
   div {
-    font-weight: bold;
+   
   }
-*/
 	
  </style>
 	
@@ -62,28 +68,14 @@
   <span class='menuLink'>be</span>
 </nav>
 	
-<!--<h3>This Just In: <span class='topic'>Javascript</span> is fun</h3>
-<img height='240px' id='headerImg' src='https://cdn-images-1.medium.com/max/1500/1*ISfHgkJmBA1WY3LpOWxn0Q.jpeg' />
-<p>Wow we're out here on the streets and everyone is having fun with <span class='topic'>javascript</span></p>
-<p>Everyone wants <span class='topic'>javascript</span> to come to their birthday party</p>
 
-<hr>
-<p>A production of <span id='companyName'>Good Ideas Inc</span> </p>-->
 	
-	
-	
-<script src='jquery-3.2.1.min.js'></script>
-<script src='tracery.js'></script>
-<script src='rita-full.min.js'></script>
-<script src='rita-full.js'></script>
-<script src="main.js"></script>
 </head>
 	
 <body>
 
-<!--text generator change -->
-	<div>	
-<!--<h1 style=color:turquoise, -->
+
+	<div>	 
 		
 <h1 style= "color: #484948; padding-top: 20px; padding-bottom: 20px; font-size: 22px; text-align: center">The placement of an object or shape may affect the sense of uncertainty</h1>
 <button onclick=generate()>sentences</button>	
@@ -93,69 +85,50 @@
 
 	
 	
-<!--try markov-->
-<!--<div>
+<!--try markov not working here-->
+<div>
 	<h1>Hello</h1>
-		<button onclick=genPnP(3)>Generate</button>
+		<button id='mark' onclick=genPnP(3)>Generate</button>
 		
-	</div>-->
-<!--<div>
-	<p>-->
+	</div>
 	
-<!--try image random selection -->
+<!--<div container>-->
 	
+<!--	WORKS RANDOM image onload-->
 	
-<img id='headerImg' src='https://www.moma.org/media/W1siZiIsIjM0NzQ2NiJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEzNjZ4MTM2Nlx1MDAzZSJdXQ.jpg?sha=7d0b09187dda89fe'/>
+<div id="canvas" style= "
+   padding-bottom: 20px">
+		
+	<img id='headerImg' src='' class='artImg'/>
 	
-	
-<!--	<span class='topic'><img id='headerImg' src='https://www.moma.org/media/W1siZiIsIjM0NzQ2NiJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEzNjZ4MTM2Nlx1MDAzZSJdXQ.jpg?sha=7d0b09187dda89fe'/> </span>-->
-	
+</div>
 
 	
-<!--random rhymes w rita-->
-	<div>
-
-	<h2 id="1" .mouseenter()>A work of art is </h2>
-<h2 id="2" .hover()>Or a piece of art is </h2>
-
-<h2 id="1">A work of art is </h2>
-<h2 id="2">Or a piece of art is </h2>
--->
-
+<!--random rhymes w rita
+	
 <!--try button:last-->
 <!--		not working RiTa random -->
 
-<h2 id="1" hover=writing()>Or a piece of art is </h2>
+	<div>
 		
-<span><button hover=writing()>make a rhyme</button><h2 id="2" hover=writing()>A work of art is </h2></span>	
-
-
-<!--	text change-->
-<!--
-		HOW TO USE button TWICE
-		HOW TO use random function twice
--->
+<h2 id="1">Or a piece of art is </h2>
+		
+<span><button hover='writing()'>make a rhyme</button>
+<h2 id="2" >A work of art is </h2></span>
+		
+	</div>			
 
 <!--
-	<h2 id="1" .hover()>A work of art is </h2>
-<h2 id="2" .hover()>Or a piece of art is </h2>
+		HOW TO USE button THREE times
 -->
-<!--
-     <checkbox hover()='writing()'>write</checkbox>
-	</div>
--->
-<!--	text change-->
 
+	
+<!--	text change class example reloads on page load-->
 
 <!--<h3>This Just In: <span class='topic'>Javascript</span> is fun</h3>
 
 <p>Wow we're out here on the streets and everyone is having fun with <span class='topic'>javascript</span></p>
 <p>Everyone wants <span class='topic'>javascript</span> to come to their birthday party</p>
-
-<hr>
-<p>A production of <span id='companyName'>Good Ideas Inc</span> </p>-->
-
-	</div>
 
 
 <!--
@@ -166,8 +139,16 @@
 
 <script>
 
-	</script>-->
--->
+</script>-->
+	
+<script src='jquery-3.2.1.js'></script>
+<script src='jquery-3.2.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='tracery.js'></script>
+<script src='rita-full.min.js'></script>
+<script src='rita-full.js'></script>
+<script src="main.js"></script>
+
 
 </body>
 	
