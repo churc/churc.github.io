@@ -12,8 +12,8 @@
 	
 <!-- menu change-->
 
-	<h1 style= "padding-top: 40px;
-   padding-bottom: 40px; font-size: 35px" ><em>uncertainty(onReload)</em></h1>
+	<h1 style= "padding-top: 50px;
+   padding-bottom: 30px; font-size: 38px" ><em>uncertainty(onReload)</em></h1>
 
 <nav style="text-align:center">
   <span class='menuLink'>uncertainty</span>
@@ -40,21 +40,23 @@
 </div>
 	
 	
-<!--try markov not working here-->
+<!--markov is working here, button issue though-->
+<!--
 <p></p>
 	<p></p>
 <div class="container">
 	
-<!--	<h1>Hello</h1>-->
+	<h1>Hello</h1>
 		<button id="buttonMrk" onclick="genPnP(3)">marky</button>
 		
 </div>
+-->
 	
 
 	
 <!-- WORKS RANDOM image onload-->
-	<div class="container" id="canvas" style='' padding-bottom: 20px>
-
+<div class="container" id="canvas" style='' >
+<!--padding-bottom: 20px-->
 <!--
 <div id="canvas" style= "
    padding-bottom: 20px">
@@ -63,16 +65,27 @@
 	<img id='headerImg' src='' class='artImg'/>
 	
 </div>
-
-<!--	WORKS image on click-->
+<p></p>
+	
+<!--WORKS - 2nd image on click-->
 	
  <div class="container">
-    <span>
-<!--		<div class="title">Random Image Generator</div>-->
-    <div class="output"></div>
-    <div class="generate">GENERATE</div></span>
 
-	</div>
+
+    <div class="generate" style='font-size: 22px; text-align: center'>Click <em style='color:blue'>here</em> to make a second image appear. Reload to change the top image. </div>
+	 <div class="output"></div>
+</div>
+	
+	
+<p></p>
+<p></p>
+<!--markov - working-->	
+<div class="container">
+	
+	<h2></h2>
+		<button id="buttonMrk" onclick="genPnP(3)">marky</button>
+		
+</div>
 	
 <!--random rhymes w rita
 	
@@ -82,21 +95,18 @@
 
 <div class="container">
 		
+<h2 id="1">Or a piece of art is </h2>	
+<span>
+	<button id="buttonRta" onclick="writing">make a rhyme</button>
+<h2 id="2" >A work of art is </h2></span>	
+	</div>
+<!--
 <h2 id="1">Or a piece of art is </h2>
 		
 <span><buttonrhyme onclick='writing()'>make a rhyme</buttonrhyme>
 <h2 id="2" >A work of art is </h2></span>
 		
-	</div>	
-	<div>
-		
-<h2 id="1">Or a piece of art is </h2>
-		
-<span><buttonwriting onclick='writing()'>make a rhyme</buttonwriting>
-<h2 id="2" >A work of art is </h2></span>
-		
-	</div>			
-
+-->
 
 
 <!--

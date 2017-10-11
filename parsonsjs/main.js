@@ -19,10 +19,10 @@ function buttonGen(){
 ////THIS works to move button
 
 $(document).ready(function(generate) {
- $('buttonGen').on('click', function() {
- ($(this).animate({'top': '-=15px'},'fast')
+ $('#buttonGen').on('click', function() {
+ ($(this).animate({'top': '-=20px'},'fast')
   );
- ($(this).animate({'top': '+=15px'}, 'fast')
+ ($(this).animate({'top': '+=20px'}, 'fast')
  );
 });
 });
@@ -72,74 +72,57 @@ function choice(arr){
 //alert("reload for more art")
 
 
-//var artNames = ['minimalism', 'conceptualism', 'arte povera', 'fauvism', 'cubism', 'land art', 'post minimalism']
-//var artistNames = ['Gego', 'Pablo Picasso', 'Marcel Duchamp', 'Julie Mehretu', 'Helen Frankenthaler']
-//
-//var topic = choice(artNames)
-//var artist = choice(artistNames)
 
 
-//look at this for markov 
-var markov = new RiMarkov(2);
+//markov works
+var markov = new RiMarkov(3);
 
 
 function genPnP(numSentences){
- $('h1').text(markov.generateSentences(numSentences).join(" "))
+ $('h2').text(markov.generateSentences(numSentences).join(" "))
 }
-var text = "chapter 1 Mr made no answer. Do you not want to know who has taken it?” cried his wife impatiently. You  want to tell me, and I have no objection to hearing it."
+var text = 'Lines, Grids, Stains, Words presents drawings from the 1960s to the present that conflate the simple and seemingly impersonal formal and compositional vocabularies of Minimal art with references to the physical and the bodily. Concerned with issues of scale and perception rather than content, Minimal art often utilizes industrial fabrication techniques and materials, and its hallmark compositional strategies include straight lines and geometric forms organized in rows, grids, and sequences. But Minimal art’s relation to the body, while ever present in the medium of sculpture, is often difficult to discern in studies, sketches, and other related works on paper. This exhibition traces the ways in which remnants of the physical can be found in Minimalist works on paper, beginning in the early 1960s, when the formal conventions were defined and tested, and follows the applications of these vocabularies in reference to the body through the present day. On Line explores the radical transformation of the medium of drawing throughout the twentieth century, a period when numerous artists subjected the traditional concepts of drawing to a critical examination and expanded the mediums definition in relation to gesture and form. In a revolutionary departure from the institutional definition of drawing, and from the reliance on paper as the fundamental support material, artists instead pushed line across the plane into real space, thus questioning the relation between the object of art and the world. On Line includes approximately three hundred works that connect drawing with selections of painting, sculpture, photography, film, and dance, represented by film and documentation. In this way, the exhibition makes the case for a discursive history of mark making, while mapping an alternative project of drawing in the twentieth century.'
 
 markov.loadText(text)
 
 function buttonMrk(){
-  document.getElementById("mrk").innerHTML=genPnP;
+ document.getElementById("mrk").innerHTML=genPnP(1);
 }
 
 
 
-//  $(".generate").click(function(){
-//    random = Math.floor((Math.random() * arr.length) + 1);
-//    $(".output").remove('.current');
-//    $(".output").html("<img class='current' width='700px' height='500px' src='" + arr[random] + "'/>");
-//  });
-//  
-//});
+//works 2nd group of images display on click
 
-//$(document).ready(function(generate) {
-// $('button').on('click', function() {
-// ($(this).animate({'top': '-=15px'},'fast')
-//  );
-// ($(this).animate({'top': '+=15px'}, 'fast')
-// );
-//});
-//});
-
-//adding
-
-//second lot of images
 $(document).ready(function(){
   var random = 0;
-  var arr = ['https://www.moma.org/media/W1siZiIsIjE2NTY0NSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEzNjZ4MTM2Nlx1MDAzZSJdXQ.jpg?sha=a88e182d4910f9b1','https://s3.amazonaws.com/files.collageplatform.com.prod/image_cache/1010x580_fit/5667f01ccfaf34e03c8b4568/2a43d856debede4c32ed74a4688e74b3.jpg','http://images.tanyabonakdargallery.com/www_tanyabonakdargallery_com/TILED_LisaOpp_ManHoldingLargeCamera_Tiled_IV1.jpg','http://47canal.us/ma/ma6.jpg'];
-
 $(".generate").click(function(){
-    random = Math.floor((Math.random() * arr.length) + 1);
+    random = Math.floor((Math.random() * artworks.length));
     $(".output").remove('.current');
-    $(".output").html("<img class='current' src='" + arr[random] + "'/>");
+    $(".output").html("<img class='current' src='" + artworks[random] + "'/>");
   });
   
 });
 
-//$(document).ready(function(generate){
-//	random Math
-//	output close
-//	output add
+
+//works markov
+
+//var markov = new RiMarkov(2);
+//
+//
+//function genPnP(numSentences){
+// $('h2').text(markov.generateSentences(numSentences).join(" "))
 //}
-//$(document).ready(function(generate) {
-// $('button').on('click', function() {
-// ($(this).animate({'top': '-=15px'},'fast')
-//  );
-// ($(this).animate({'top': '+=15px'}, 'fast')
-// );
-//});
+//var text = ["minimalism conceptualism, arte povera, fauvism cubism land art. post minimalism, abstraction abstract expressionism."]
+////var artistNames = ['Gego', 'Pablo Picasso', 'Marcel Duchamp', 'Julie Mehretu', 'Helen Frankenthaler'"
+//
+//markov.loadText(text)
+//
+//function buttonMrk(){
+//  document.getElementById("mrk").innerHTML=genPnP;
+//}
+
+
+
 
 //random rhymes not working - again button issue
 
@@ -156,7 +139,9 @@ function writing() {
   $('#1').tx('A work of art is ' + randWord)
   $('#2').tx('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
 }
-
+function buttonRta(){
+ document.getElementById("mrk").innerHTML=writing;
+}
 
 
 

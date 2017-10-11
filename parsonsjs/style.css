@@ -13,13 +13,9 @@ html {
 }
 
 body {
-  	background-color: #ad3c04;
   	font-family: "Helvetica";
   	font-size: 16px;
   	line-height: 1.5em;
-}
-
-body {
     background: #e6e9e7;
 	margin-left: 40px;
 	margin-right: 40px;
@@ -58,7 +54,6 @@ h2 {
 
 div { 
     background-position: center; 
-    margin-left: 30px;
 }
         
 a {
@@ -70,17 +65,13 @@ a {
 img {
      padding:40px;
 	 padding-top: 40px;
-	 padding-top: 40px;
+	 padding-bottom: 40px;
      display: block;
 	 margin: auto;
 	 margin-top:40px;
-/*     max-width: 80%;*/
-/*
-	 max-width: 1000px
+	 max-width: 1000px;
      height: auto;
-*/
-	max-width: auto;
-     height: 700px;
+	 position: relative;
 }
 
 
@@ -89,8 +80,8 @@ img {
 }  
 
  button {
-    font-size: 16px;
-    margin: 8px;
+    font-size: 18px;
+    margin: 10px;
 	background-color: #e6f6fd;
 	display: block;
 	vertical-align: center;
