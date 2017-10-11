@@ -8,55 +8,12 @@
 <link rel="stylesheet" href="style.css">
 	
 <style>
-	
-  body {
-    background: #e6e9e7;
-	margin-left: 40px;
-	margin-right: 40px;
-	background-position: center;
-	display: block;
-	vertical-align:middle;
-	max-height: 4000px;
-  }
-	
-  button {
-    font-size: 16px;
-    margin: 8px;
-/*	margin-left: 18px;*/
-	background-color: #e6f6fd;
-	display: block;
-	vertical-align: center;
-	left: 15%;
-	position: relative;
-	-moz-transition: none;
- 	-o-transition: none;
- 	-webkit-transition: none;
-  }
-	
-.menuLink {
-  color:deepskyblue;
-  text-decoration:underline;
-  font-size: 20px;
-  margin-left: 10px;
-}
-	
-#canvas {
-  height: auto;
-  display: block;
-  vertical-align: center;
-  left: -15%;
-}
-	
-  div {
-   
-  }
-	
- </style>
+</style>
 	
 <!-- menu change-->
 
 	<h1 style= "padding-top: 40px;
-   padding-bottom: 40px; font-size: 35px" ><em>uncertainty</em></h1>
+   padding-bottom: 40px; font-size: 35px" ><em>uncertainty(onReload)</em></h1>
 
 <nav style="text-align:center">
   <span class='menuLink'>uncertainty</span>
@@ -75,71 +32,82 @@
 <body>
 
 
-	<div>	 
+<div class="container"> 
 		
 <h1 style= "color: #484948; padding-top: 20px; padding-bottom: 20px; font-size: 22px; text-align: center">The placement of an object or shape may affect the sense of uncertainty</h1>
-<button onclick=generate()>sentences</button>	
 
-	</div>
-	<p></p>
-
+	<button id="buttonGen" onclick="generate()">sentences</button>
+</div>
 	
 	
 <!--try markov not working here-->
-<div>
-	<h1>Hello</h1>
-		<button id='mark' onclick=genPnP(3)>Generate</button>
+<p></p>
+	<p></p>
+<div class="container">
+	
+<!--	<h1>Hello</h1>-->
+		<button id="buttonMrk" onclick="genPnP(3)">marky</button>
 		
-	</div>
+</div>
 	
-<!--<div container>-->
+
 	
-<!--	WORKS RANDOM image onload-->
-	
+<!-- WORKS RANDOM image onload-->
+	<div class="container" id="canvas" style='' padding-bottom: 20px>
+
+<!--
 <div id="canvas" style= "
    padding-bottom: 20px">
+-->
 		
 	<img id='headerImg' src='' class='artImg'/>
 	
 </div>
 
+<!--	WORKS image on click-->
+	
+ <div class="container">
+    <span>
+<!--		<div class="title">Random Image Generator</div>-->
+    <div class="output"></div>
+    <div class="generate">GENERATE</div></span>
+
+	</div>
 	
 <!--random rhymes w rita
 	
 <!--try button:last-->
 <!--		not working RiTa random -->
 
+
+<div class="container">
+		
+<h2 id="1">Or a piece of art is </h2>
+		
+<span><buttonrhyme onclick='writing()'>make a rhyme</buttonrhyme>
+<h2 id="2" >A work of art is </h2></span>
+		
+	</div>	
 	<div>
 		
 <h2 id="1">Or a piece of art is </h2>
 		
-<span><button hover='writing()'>make a rhyme</button>
+<span><buttonwriting onclick='writing()'>make a rhyme</buttonwriting>
 <h2 id="2" >A work of art is </h2></span>
 		
 	</div>			
 
-<!--
-		HOW TO USE button THREE times
--->
-
-	
-<!--	text change class example reloads on page load-->
-
-<!--<h3>This Just In: <span class='topic'>Javascript</span> is fun</h3>
-
-<p>Wow we're out here on the streets and everyone is having fun with <span class='topic'>javascript</span></p>
-<p>Everyone wants <span class='topic'>javascript</span> to come to their birthday party</p>
 
 
 <!--
-
  Bootstrap CSS 
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+-->
 
 <script>
 
-</script>-->
+</script>
 	
 <script src='jquery-3.2.1.js'></script>
 <script src='jquery-3.2.1.min.js'></script>

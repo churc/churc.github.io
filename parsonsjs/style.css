@@ -5,7 +5,7 @@ html {
   height: 100%;
   width: 100%;
 /*  background-color: #a84e1d;*/
-background-color: lightyellow;
+  background-color: lightyellow;
   font-family: "Courier";
   font-size: 16px;
   line-height: 1.5em;
@@ -18,6 +18,16 @@ body {
   	font-size: 16px;
   	line-height: 1.5em;
 }
+
+body {
+    background: #e6e9e7;
+	margin-left: 40px;
+	margin-right: 40px;
+	background-position: center;
+	display: block;
+	vertical-align:middle;
+	max-height: 4000px;
+  }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Helvetica";
@@ -42,6 +52,10 @@ h2 {
 	color: #d0bc36;
 }
 
+.container {
+	display: block;
+}
+
 div { 
     background-position: center; 
     margin-left: 30px;
@@ -60,14 +74,51 @@ img {
      display: block;
 	 margin: auto;
 	 margin-top:40px;
-     max-width: 80%;
+/*     max-width: 80%;*/
+/*
+	 max-width: 1000px
      height: auto;
+*/
+	max-width: auto;
+     height: 700px;
 }
 
 
 .col-wrap{
 	overflow: hidden; 
 }  
+
+ button {
+    font-size: 16px;
+    margin: 8px;
+	background-color: #e6f6fd;
+	display: block;
+	vertical-align: center;
+	left: 15%;
+	position: relative;
+	-moz-transition: none;
+ 	-o-transition: none;
+ 	-webkit-transition: none;
+  }
+
+.buttons {
+  position: fixed;
+  width: 100%;
+}
+	
+.menuLink {
+  color:deepskyblue;
+  text-decoration:underline;
+  font-size: 20px;
+  margin-left: 10px;
+}
+	
+#canvas {
+  height: auto;
+  display: block;
+  vertical-align: center;
+  left: -15%;
+}
 
 
 
