@@ -75,7 +75,7 @@ function choice(arr){
 
 
 //markov works
-var markov = new RiMarkov(3);
+var markov = new RiMarkov(2);
 
 
 function genPnP(numSentences){
@@ -86,12 +86,11 @@ var text = 'Lines, Grids, Stains, Words presents drawings from the 1960s to the 
 markov.loadText(text)
 
 function buttonMrk(){
- document.getElementById("mrk").innerHTML=genPnP(1);
+ document.getElementById("mrk").innerHTML=genPnP(2);
 }
 
 
-
-//works 2nd group of images display on click
+//2nd group of images display on click
 
 $(document).ready(function(){
   var random = 0;
@@ -104,27 +103,8 @@ $(".generate").click(function(){
 });
 
 
-//works markov
 
-//var markov = new RiMarkov(2);
-//
-//
-//function genPnP(numSentences){
-// $('h2').text(markov.generateSentences(numSentences).join(" "))
-//}
-//var text = ["minimalism conceptualism, arte povera, fauvism cubism land art. post minimalism, abstraction abstract expressionism."]
-////var artistNames = ['Gego', 'Pablo Picasso', 'Marcel Duchamp', 'Julie Mehretu', 'Helen Frankenthaler'"
-//
-//markov.loadText(text)
-//
-//function buttonMrk(){
-//  document.getElementById("mrk").innerHTML=genPnP;
-//}
-
-
-
-
-//random rhymes not working - again button issue
+//random rhymes not working - button issue
 
 var randWord;
 function writing() {
@@ -132,15 +112,15 @@ function writing() {
   while(RiTa.rhymes(randWord).length<1){
     randWord = RiTa.randomWord('nn')
 	
-	$(randWord).on('hover', 'h2', writing);
-   console.log(randWord)
-	  
+//	$(randWord).on('click', 'buttonRta', writing);
+//   console.log(randWord)
+//	  
   }
-  $('#1').tx('A work of art is ' + randWord)
-  $('#2').tx('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
+  $('#1').text('A work of art is ' + randWord)
+  $('#2').text('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
 }
 function buttonRta(){
- document.getElementById("mrk").innerHTML=writing;
+ document.getElementById("Rta").innerHTML=writing;
 }
 
 

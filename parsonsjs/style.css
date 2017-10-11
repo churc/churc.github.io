@@ -43,9 +43,17 @@ h2 {
     margin-top: 15px;
 	margin-top: 15px;
 	text-align: center;
-	margin-left:-20px;
 	font-size: 22px;
 	color: #d0bc36;
+}
+
+h3 {
+    margin-top: 10px;
+	margin-top: 10px;
+	text-align: center;
+	margin-left:-20px;
+	font-size: 20px;
+	color: #c57dc9;
 }
 
 .container {
@@ -81,7 +89,9 @@ img {
 
  button {
     font-size: 18px;
-    margin: 10px;
+	color: #8d8b01;
+    margin: 20px;
+	padding: 8px;
 	background-color: #e6f6fd;
 	display: block;
 	vertical-align: center;
