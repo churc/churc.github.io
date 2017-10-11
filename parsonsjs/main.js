@@ -39,6 +39,16 @@ function choice(arr){
   return arr[Math.floor(Math.random() * arr.length)]
 }
 
+///random artnames on reload works
+var artnames = ['Avis Newman', 'Richard Tuttle', 'Cady Noland', 'Andy Warhol', 'Pablo Picasso', 'Cindy Sherman', 'Myron Stout', 'Sarah Sze', 'Blinky Palermo', 'Mark Bradford','James Sienna', 'Louise Bourgeois', 'Lee Krasner', 'Joan Mitchell','Agnes Martin', 'Yayoi Kusama','Judy Chicago', 'Eva Hesse'];
+
+var artNm = choice(artnames)
+$('#headerNm').text(artNm)
+
+function choice(arr){
+  return arr[Math.floor(Math.random() * arr.length)]
+}
+
 
 //MENU CHANGE works
 
@@ -80,6 +90,7 @@ function genPnP(numSentences){
 var text = 'Lines, Grids, Stains, Words presents drawings from the 1960s to the present that conflate the simple and seemingly impersonal formal and compositional vocabularies of Minimal art with references to the physical and the bodily. Concerned with issues of scale and perception rather than content, Minimal art often utilizes industrial fabrication techniques and materials, and its hallmark compositional strategies include straight lines and geometric forms organized in rows, grids, and sequences. But Minimal art’s relation to the body, while ever present in the medium of sculpture, is often difficult to discern in studies, sketches, and other related works on paper. This exhibition traces the ways in which remnants of the physical can be found in Minimalist works on paper, beginning in the early 1960s, when the formal conventions were defined and tested, and follows the applications of these vocabularies in reference to the body through the present day. On Line explores the radical transformation of the medium of drawing throughout the twentieth century, a period when numerous artists subjected the traditional concepts of drawing to a critical examination and expanded the mediums definition in relation to gesture and form. In a revolutionary departure from the institutional definition of drawing, and from the reliance on paper as the fundamental support material, artists instead pushed line across the plane into real space, thus questioning the relation between the object of art and the world. On Line includes approximately three hundred works that connect drawing with selections of painting, sculpture, photography, film, and dance, represented by film and documentation. In this way, the exhibition makes the case for a discursive history of mark making, while mapping an alternative project of drawing in the twentieth century.'
 
 markov.loadText(text)
+$('#headerMark').text(genPnP)
 
 function buttonMrk(){
  document.getElementById("mrk").innerHTML=genPnP(2);

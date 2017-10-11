@@ -24,13 +24,10 @@
   <span class='menuLink redLink'>not</span>
   <span class='menuLink'>be</span>
 </nav>
-	
-
-	
+		
 </head>
 	
 <body>
-
 
 <div class="container"> 
 		
@@ -38,11 +35,17 @@
 
 	<button id="buttonGen" onclick="generate()">sentence doubles</button>
 </div>
-	
 
 	
-<!-- WORKS RANDOM image onload-->
-<div class="container" id="canvas" style='' >
+<!-- WORKS RANDOM artnames text on reload-->	
+<div class = container id="names">
+	<h4 id='headerNm' class='artnames' style='font-size: 26px'>
+	</h4>
+</div>
+	
+	
+<!-- WORKS RANDOM image on reload-->
+<div class="container" id="canvas" style='padding-top: none;' >
 		
 <img id='headerImg' src='' class='artImg'/>
 	
@@ -52,24 +55,19 @@
 <!--WORKS - 2nd image on click-->
 	
  <div class="container">
-
-
     <div class="generate" style='font-size: 22px; text-align: center'>Click <em style='color:blue'>here</em> to make a second image appear. Reload to change the top image. </div>
 	 <div class="output"></div>
 </div>
-	
-	
+		
 <p></p>
 <p style="padding:20px"></p>
 	
 <!--markov - working-->	
 <div class="container">
 	
-	<h2></h2>
-		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>
-		
+	<h2 id='headerMark'></h2>
+		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>		
 </div>
-
 <p style="padding:35px"></p>
 
 	
@@ -79,7 +77,6 @@
 		
 <h3 id="1" style='font-size: 16px; font-color:orange'>Or a piece of art is </h3>	
 <span>
-<!--	<button id="buttonRta" onclick="writing">make a rhyme</button>-->
 <h3 id="2">A work of art is </h3></span>
 	<button id="buttonRta" onclick="writing()">make a rhyme</button>
 	<p style="padding:18px"></p>
@@ -93,7 +90,6 @@
 -->
 
 <script>
-
 </script>
 	
 <!--<script src='jquery-3.2.1.js'></script>-->
