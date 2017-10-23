@@ -30,7 +30,8 @@ function setup() {
 }
 
 function draw() {
-  background(51, 173, 255);
+//  background(51, 173, 255);
+	background(153, 255, 255);
 
   /** 
    * Analyze the sound as a waveform (amplitude over time)
