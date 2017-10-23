@@ -1,66 +1,39 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- This is the head, where I link to my stylesheets and can put other setup basics like a title or meta tags -->
-  <meta charset="utf-8">
-
-  <title></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-<!-- This is how I link to my stylesheet, where I will write css -->
-  <link rel="stylesheet" href="stylesheet.css">
-
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css"href="Style/style.css">	
+	<title></title>
+	<style>	</style>
+	
 </head>
-
+	
 <body>
-    <!-- This is the body of my website, where I write actual HTML -->
-    <h1>MENTAL HEALTH IN THE U.S.</h1>
-    <h2>DATA FROM THE NATIONAL SURVEY ON DRUG USE AND HEALTH </h2>
-    <h5>Clare Churchouse, posted December 14, 2015</h5>
-    <p>The NSDUH survey report was published in September 2015, 'Behavioral Health Trends in the United States: Results from the 2014 National Survey on Drug Use and Health', Substance Abuse and Mental Health Services Administration (SAMHSA). It details behavioral health trends in the noninstitutionalized population of the United States from the past year. The report and detailed tables provide national and state data on behavioral health trends: mental health and tobacco, alcohol, and illicit drug use (including non-medical use of prescription drugs). </p>
-   <p>'Any mental illness' (AMI) is defined as having any mental, behavioral, or emotional disorder in the past year that met DSM-IV criteria (excluding developmental disorders and SUDs). 'Serious mental illness' (SMI) is one of the three categories of AMI and is defined as AMI adults who have had any mental, behavioral, or emotional disorder that substantially interfered with or limited one or more major life activities. Since the NSDUH survey does not cover institutions (such as prisons, nursing homes, mental institutions, military personnel on active duty), and does not cover those with no fixed address (the homeless who are not in shelters), it may be that the mental health statistical data is somewhat lower than if all populations were surveyed. The survey though does interview residents of households and individuals in non-institutional group quarters including halfway houses, homeless shelters, college dormitories, and migratory workers’ camps.</p>
-   <p>The term 'behavioral health' covers the full range of mental and emotional wellbeing – from coping with day-to-day challenges of life, to the treatment of serious mental illnesses, and substance use disorder and other addictive behaviors. Behavioral health has been getting more attention in recent years. The Affordable Care Act (ACA) instigated changes in the way that health care is delivered, paid for and monitored, and stipulated that all plans must cover: behavioral health treatment, such as psychotherapy and counseling; mental and behavioral health inpatient services; and substance use disorder (commonly known as substance abuse) treatment.</p>
-  <p>People with a 'substance use disorder' (SUD) are defined as those who met the criteria for dependence or abuse for alcohol or illicit
-  drugs in the past 12 months based on criteria specified in the Diagnostic
-  and Statistical Manual of Mental Disorders, 4th edition (DSM-IV). Having both a mental health issue and an SUD is referred to as a co-occurring disorder. Note that AMI numbers as reported by NSDUH do not include developmental or substance use disorders.</p>
-      <p>  </p>
-      <div>
-      <div>
-  <img src="Images/PictogramAMI5.png">
-  <div>
-  
-    <h4>WHAT IS THE AGE BREAKDOWN OF AMI AND SMI?</h4>
-  <div>
-  <img src="Images/yearsAMI5.png">
-  <div>
-  <img src="Images/yearsSMIage3.png">
- 
-  <p>AMI trend lines show 2014 as highest rate since 2008 for ages 18-25.
-      AMI trend lines show 2009 and 2012 as highest rates since 2008 for the other age groups.
-      AMI trend lines show overall increase in AMI since 2008 for all age groups except 26-49 year olds.
-  SMI trend lines show past year saw increase for ages 18-25 despite decrease in SMI for all 18 and older.
-  SMI trend lines show SMI highest rate for ages 18-25 for 6 years.
-  SMI trend lines show overall increase for 50 and older population.
-  <div>
-  <div>
-  <h4>IS INCOME BELOW THE FEDERAL POVERTY LEVEL ASSOCIATED WITH DIFFERENT AMI AND SMI RATES?</h4>
-  <div>
-  <img src="Images/BelowFPLAMI6.png">
- <div>
-  <img src="Images/BelowFPLSMI5.png">
-  <div>
-  <div>
-  <h4>ARE AMI RATES THE SAME ACROSS STATES OR DO CERTAIN STATES SEE HIGHER RATES?</h4>
-  <div>
-  <img src="Images/chartpercentstates4.png">
-   
 
-  <p>The charts are based on data from 'Behavioral Health Trends in the United States: Results from the  <a href="http://www.samhsa.gov/data/sites/default/files/NSDUH-FRR1-2014/NSDUH-FRR1-2014.pdf">National Survey on Drug Use and Health' </a> </p>
+	<div class="selectorWrapper">
 
-</div>
-    <!-- If we were writing javascript, we'd link to our javascript files in the script tags below -->
-  <script></script>
+	  <p>Move mouse to change soundwaves, mouse path shown by dots:</p>
+<div id="myContainersound"></div>
+	
+<div id="myContainerdraw" style="background:230"></div>
+		
+<div id="Song">Click to play song</div>
+	<p>Press any key to play or to pause song</p>
+	</div>
+
+<!--
+ Bootstrap CSS 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+-->
+
+	<script src="p5.js"></script>
+<script src='jquery-3.2.1.min.js'></script>
+<script src="JS/music.js"></script>
+<!--	<script src="p5.sound.js"></script>-->
+	<script src="p5.sound.min.js"></script>
+<script src="p5.dom.js"></script>
+
+
 </body>
+	
 </html>
