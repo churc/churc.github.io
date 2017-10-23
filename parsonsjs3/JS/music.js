@@ -9,7 +9,7 @@ var waveform = [];
 
 function preload() {
   soundFormats('mp3', 'ogg');
-  soundFile = loadSound('assets/Beyonce');
+  soundFile = loadSound('assets/BackToBlack');
 }
 
 function setup() {
@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-  background(250);
+  background(51, 173, 255);
 
   /** 
    * Analyze the sound as a waveform (amplitude over time)
@@ -40,8 +40,9 @@ function draw() {
   // Draw snapshot of the waveform
   beginShape();
   for (var i = 0; i< waveform.length; i++){
-    stroke(5);
-    strokeWeight(5);
+    stroke(3);
+    strokeWeight(1);
+	stroke('red');
     vertex(i*2, map(waveform[i], -1, 1, height, 0) );
   }
   endShape();
