@@ -1,99 +1,196 @@
-///////////THIS WORKS FOR WAVE TO FOLLOW MOUSE DRAW AGAIN TO GET IT TO SHOW
+///THIS WORKS TO PLAY SONG AND SHOW WAVEFORM
 
-var my2p5 = new p5(s2,'myContainerdraw');
-
-var s2 = function(p) {
-	
-var SIZE = 0.9
-//var sizeGrowth = 0.6
-var blueness = 0
-var changeBlue = 1
-
-p.setup = function(){
-  var canv = p.createCanvas(1360, 300)
-  canv.parent('myContainerdraw');
-}
-	
-
-p.draw = function() {
-	//remove stroke from circles
-	 p.noStroke()
-	  //change the blue in our function over time
-  	blueness += changeBlue;
-	   if(blueness == 150 || blueness == 210){
-    changeBlue *= -1;
-  }
-	
-//$('selectorLeft').on('mouseenter', function(){
-//		
-
-
-p.mouseDragged = function(){
-	
-  //map is a cool function that maps a number in one range to one in another. So in the example below, we're mapping mouseX, a number between 0 and the pixel width of the screen, to a number between 0 and 255. So when the mouse is half way across the screen, mouseColorX will return 127. This is a handy way to pass input from one place into another place that has constaints (0 to 255 for color).
-  var mouseColorX = map(mouseX, 0, width, 50, 120)
-  var mouseColorY = map(mouseY, 0 , height, 245, 90)
-  //fill(red, green, blue)
-  //The red is based on the x position of the mouse, the color is based on the y position of the mouse, and the blue changes over time as the program runs.
-  p.fill(mouseColorX, mouseColorY, blueness)
-  //draws an ellipse where our mouse is, and makes it bigger based on how long we've been holding down the mouse
-//  p.ellipse(mouseX,mouseY, 12+SIZE, 12+SIZE)
-   p.ellipse(mouseX,mouseY, 15+SIZE, 15+SIZE)
-//  SIZE += sizeGrowth
-}
-
-p.mouseReleased = function(){
-  SIZE = 0;
-}
-};
-};
-var my2p5 = new p5(s2);
-
-
-//////////////////////////////
-////Filter BandPass
-//new p5();
-////var s = function() {
-//
-var noise;
+var soundFile;
 var fft;
-var filter, filterFreq, filterWidth;
+var fftBands = 1024;
 
-  function setup() {
-  var canvas = createCanvas(1360, 300);
-	canvas.parent('myContainersound');
-	drawingContext.shadowOffsetX = 5;
-  drawingContext.shadowOffsetY = -15;
-  drawingContext.shadowBlur = 10;
-  drawingContext.shadowColor = "purple";
-	
+// Array of amplitude values (0-255) over time.
+var waveform = [];
+
+function preload() {
+  soundFormats('mp3', 'ogg');
+  soundFile = loadSound('assets/BackToBlack');
+}
+
+function setup() {
+  var myCanvas = createCanvas(fftBands, 256);
+  noFill();
+//	sites the container on the page
+myCanvas.parent('myContainersound');
+
+  soundFile.loop();
+
+  /**
+   *  Create an FFT object.
+   *  Accepts optional parameters for
+   *    - Smoothing 
+   *    - Length of the FFT's analyze/waveform array. Must be a power of two between 16 and 1024 (default).
+   */
+  fft = new p5.FFT(.99, fftBands);
+
+//  p = createP('Press any key to play or to pause song');
+}
+
+function draw() {
+	background(153, 255, 255);
+
+  /** 
+   * Analyze the sound as a waveform (amplitude over time)
+   */
+  waveform = fft.waveform();
+
+  // Draw snapshot of the waveform
+  beginShape();
+  for (var i = 0; i< waveform.length; i++){
+    stroke(3);
+    strokeWeight(1);
+	stroke('red');
+    vertex(i*2, map(waveform[i], -1, 1, height, 0) );
+  }
+  endShape();
+}
+
+function keyPressed() {
+  if (soundFile.isPlaying()) {
+    soundFile.pause();
+  } else {
+    soundFile.play();
+  }
+}
+
+
+//////This works to ADD lyrics show when button is pressed
+
+//markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
+
+var markov = new RiMarkov(2);
+//var mrk = document.getElementById("headerMark");
+function genPnP(numSentences){
+ $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
+}
+var lyrics = 'He left no time to regret, Kept his dick wet, With his same old safe bet. Me and my head high, And my tears dry, Get on without my guy. You went back to what you knew, So far removed from all that we went through. And I tread a troubled track, My odds are stacked, Ill go back to black. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to, I go back to us. I loved you much. Its not enough, You love blow and I love puff, And life is like a pipe. And Im a tiny penny rolling up the walls inside. We only said goodbye with words. I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. Black, black, black, black, black, black, black. I go back to, I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to black.'
+
+markov.loadText(lyrics)
+$('#headerMark').text(genPnP)
+
+//function buttonMrk(){
+// document.getElementById("mrk").innerHTML=genPnP();
+//}
+
+//function keyTyped(){
+//  if(key == ' '){
+//    lyrics.stop()
+//    lyrics.play()
+//  }
+//}
+
+
+
+///////MIC works to record and play back sound but doesn't can't see myContainersound anymore
+
+var mic, recorder, soundFile;
+
+var state = 0; // mousePress will increment from Record, to Stop, to Play
+
+function setup() {
+  myCanvas2 = createCanvas(1200,300);
+	myCanvas2.parent('myContainerdraw');
+  background(200);
+  fill(0);
+  text('Enable mic and click the mouse to begin recording', 20, 20);
+
+  // create an audio in
+  mic = new p5.AudioIn();
+
+  // users must manually enable their browser microphone for recording to work properly!
+  mic.start();
+
+  // create a sound recorder
+  recorder = new p5.SoundRecorder();
+
+  // connect the mic to the recorder
+  recorder.setInput(mic);
+
+  // create an empty sound file that we will use to playback the recording
+  soundFile = new p5.SoundFile();
+}
+
+function draw() {
+  // Get the overall volume (between 0 and 1.0)
+  var vol = mic.getLevel();
+  console.log(vol)
+  fill(0,255,255);
+  noStroke();
+
+  // Draw an ellipse with height based on volume
+  var h = map(vol, 0, 1, 0, 150);
+  ellipse(width/2, height/2, 50 + h, 50 + h);
+}
+
+function mousePressed() {
+//getWave();
+  // use the '.enabled' boolean to make sure user enabled the mic (otherwise we'd record silence)
+  if (state === 0 && mic.enabled) {
+
+    // Tell recorder to record to a p5.SoundFile which we will use for playback
+    recorder.record(soundFile);
+
+    background(255,0,0);
+    text('Recording now! Click to stop.', 20, 20);
+    state++;
+  }
+
+  else if (state === 1) {
+    recorder.stop(); // stop recorder, and send the result to soundFile
+
+    background(0,255,0);
+    text('Recording stopped. Click to play & save', 20, 20);
+    state++;
+  }
+
+  else if (state === 2) {
+    soundFile.play(); // play the result!
+    saveSound(soundFile, 'mySound.wav'); // save file
+    state++;
+  }
+}
+
+
+///////////NOT USING: PARK
+////this works to play song
+////FILTER LOWPASS
+/*
+var soundFile;
+var fft;
+var filter, filterFreq, filterRes;
+function preload() {
+  soundFormats('mp3', 'ogg');
+  soundFile = loadSound('assets/Beyonce');
+}
+function setup() {
+  createCanvas(710, 256);
   fill(255, 40, 255);
-
-  filter = new p5.BandPass();
-
-  noise = new p5.Noise();
-
-  noise.disconnect(); // Disconnect soundfile from master output...
-  filter.process(noise); // ...and connect to filter so we'll only hear BandPass.
-  noise.start();
-
+  // loop the sound file
+  soundFile.loop();
+  filter = new p5.LowPass();
+  // Disconnect soundfile from master output.
+  // Then, connect it to the filter, so that we only hear the filtered sound
+  soundFile.disconnect();
+  soundFile.connect(filter);
   fft = new p5.FFT();
 }
-	
-
-  function draw() {
-  background(230);
-
-  // Map mouseX to a bandpass freq from the FFT spectrum range: 10Hz - 22050Hz
+function draw() {
+  background(30);
+  // Map mouseX to a the cutoff frequency from the lowest
+  // frequency (10Hz) to the highest (22050Hz) that humans can hear
   filterFreq = map (mouseX, 0, width, 10, 22050);
-  // Map mouseY to resonance/width
-  filterWidth = map(mouseY, 0, height, 0, 90);
+  // Map mouseY to resonance (volume boost) at the cutoff frequency
+  filterRes = map(mouseY, 0, height, 15, 5);
   // set filter parameters
-  filter.set(filterFreq, filterWidth);
-
+  filter.set(filterFreq, filterRes);
   // Draw every value in the FFT spectrum analysis where
   // x = lowest (10Hz) to highest (22050Hz) frequencies,
-  // h = energy / amplitude at that frequency
+  // h = energy (amplitude / volume) at that frequency
   var spectrum = fft.analyze();
   noStroke();
   for (var i = 0; i< spectrum.length; i++){
@@ -101,38 +198,5 @@ var filter, filterFreq, filterWidth;
     var h = -height + map(spectrum[i], 0, 255, height, 0);
     rect(x, height, width/spectrum.length, h) ;
   }
-
-};
-
-///////PLAY SONG
-//
-//var my3p5 = new p5(s3,'Song');
-//
-//var s3 = function(d) {
-//var songB;
-//
-//d.reload = function() {
-//  soundFormats('mp3', 'ogg');
-//  songB = loadSound('assets/Beyonce.mp3');
-//}
-//
-//d.setup = function(){
-//
-//}
-//
-// d.draw = function() {
-//  background(255,255,0);
-//  var str = 'Click here to play!';
-//  str += ' Current Play Mode: ' + playMode+'.';
-//  text(str, 10, height/2);
-//}
-//d.mouseClicked = function(){
-//songB.play;
-//}
-//};	 
-//var my3p5 = new p5(s3);
-//
-//
-//
-////});
-
+} 
+*/
