@@ -81,6 +81,11 @@ headerMark{
 buttonMrk{
 	padding: 20px;
 	margin: 20px;
+	display: block;
+	position: relative;
+	text-align: center;
+	align-self: center;
+	justify-content: center;
 }
 .selectorWrapper{
 	width: 100%;
