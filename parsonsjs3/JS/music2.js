@@ -13,8 +13,10 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(fftBands, 256);
+  var myCanvas = createCanvas(fftBands, 256);
   noFill();
+//	sites the container on the page
+myCanvas.parent('myContainersound');
 
   soundFile.loop();
 
