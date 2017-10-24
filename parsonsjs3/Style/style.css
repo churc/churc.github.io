@@ -7,7 +7,14 @@ body{
 	margin-top: 20px;
 /*	background: #f5ddee;*/
 /*	background-image: url( 'http://www.tate.org.uk/art/images/work/T/T07/T07501_10.jpg');*/
-	background-image: url('https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg');
+/*	background-image: url('https://image.freepik.com/free-photo/blue-swimming-pool-rippled-water-detail_1258-710.jpg');*/ 
+/*  background-image: url('https://media.giphy.com/media/payqR9r3sE4PS/giphy.gif');*/
+	
+background-image: url('https://media.giphy.com/media/r2DZ7c7zrY1jO/giphy.gif');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  	background-size: cover;
 	justify-content: center;
 }
 
@@ -30,6 +37,25 @@ canvas {
 	z-index: 500;
 }
 
+h1{
+	color: aliceblue;
+	font-size: 24px;
+	font-family: "Seravek ExtraLight Italic";
+	display: block;
+	text-align: center;
+	justify-content: center;
+}
+
+h2{
+	color: aliceblue;
+	font-size: 18px;
+	font-family: "Seravek";
+	display: block;
+	text-align: center;
+	justify-content: center;
+	padding: 20px;
+}
+
 #myContainersound{
 	width: 1360;
 	height: 300;
@@ -41,6 +67,21 @@ canvas {
 	background-color: 230;
 }
 
+headerMark{
+	color: aliceblue;
+	font-size: 24px;
+	font-family: "Seravek";
+	width: 1360;
+	height: 300;
+	display: block;
+	text-align: center;
+	justify-content: center;
+}
+
+buttonMrk{
+	padding: 20px;
+	margin: 20px;
+}
 .selectorWrapper{
 	width: 100%;
 	height: 100%;
