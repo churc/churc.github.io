@@ -11,16 +11,40 @@
 <body>
 
 	<div class="selectorWrapper">
-
-<!--	  <p>Move mouse to change soundwaves, mouse path shown by dots:</p>-->
-<div id="myContainersound"></div>
-	
-<div id="myContainerdraw" style="background:230"></div>
-		
 <!--<div id="Song">Click to play song</div>-->
-	<p>Press any key to pause or restart song</p>
-	</div>
+	
+<div><h1 style="padding-top:40px">Press any key to pause - or to restart song</h1>
+		
+</div>
 
+
+<div class="container">
+	<div id="myContainersound"></div>
+</div>
+		
+<div class="container">
+	<div id="myContainerdraw" style="background-color:230"></div>
+</div>	
+
+	
+	
+<!--
+	markov text
+<div id="headerMark" style="background:230"><h1>try pressing w</h1></div>
+</div>
+THIS WORKS-->
+<!--
+<div class="container">
+<h1 id='headerMark'></h1>
+		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>	
+</div>
+-->
+		
+<div class="container">
+<h2 id='headerMark'></h2>
+		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>	
+</div>
+</div>		
 <!--
  Bootstrap CSS 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -28,10 +52,16 @@
 
 	<script src="p5.js"></script>
 <script src='jquery-3.2.1.min.js'></script>
-<script src="JS/music.js"></script>
+
 <!--	<script src="p5.sound.js"></script>-->
 	<script src="p5.sound.min.js"></script>
 <script src="p5.dom.js"></script>
+	<script src='tracery.js'></script>
+<script src="rita-full.min.js"></script>
+<!--	<script src="rita.min.js"></script>-->
+	
+<!--	<script src="rita-full.js"></script>-->
+<script src="JS/music2.js"></script>	
 
 
 </body>
