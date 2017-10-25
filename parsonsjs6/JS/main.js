@@ -10,7 +10,7 @@ var waveform = [];
 
 p.preload = function(){
   p.soundFormats('mp3', 'ogg');
-  soundFile = p.loadSound('assets/BackToBlack');
+  soundFile = p.loadSound('Assets/BackToBlack.mp3');
 }
 
 p.setup = function(){
@@ -61,10 +61,14 @@ p.keyPressed = function(){
 };
 var myp5 = new p5(s, 'myContainersound');
 
-//////This works to ADD lyrics show when button is pressed
+////// ADD scrambled lyrics when button is pressed
+	//	markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
+	
+//	this has stopped working - add eventlistener and event.stopImmediatePropagation()
 
-//markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
-//var m = function(p){ 
+//ADDING function greyed out just below does not help
+/*
+	//var m = function(p){ 
 //var markov = new RiMarkov(2);
 ////var buttonMrk = document.getElementById("headerMark");
 //var buttonMrk = document.getElementById("#buttonMrk")
@@ -72,11 +76,11 @@ var myp5 = new p5(s, 'myContainersound');
 //p.genPnP = function(numSentences){
 // $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
 //}
-
+*/
 
  
 var markov = new RiMarkov(2);
-//var buttonMrk = document.getElementById("headerMark");
+	
 var buttonMrk = document.getElementById("#buttonMrk")
 
 function genPnP(numSentences){
@@ -88,6 +92,7 @@ var lyrics = 'He left no time to regret, Kept his dick wet, With his same old sa
 
 markov.loadText(lyrics)
 $('#headerMark').text(genPnP)
+
 //};
 //var myp5 = new p5(m,'headerMark');
 	
@@ -102,7 +107,6 @@ $('#headerMark').text(genPnP)
 //       event.stopImmediatePropagation();
 //    });    
 //});
-
 
 
 
