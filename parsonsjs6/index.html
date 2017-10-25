@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+<!--for favicon.ico error add code to turn it off-->
+	<link rel="shortcut icon" href="">
+	<link rel="stylesheet" type="text/css"href="Style/style.css">	
+	<title></title>	
+<!-- this line removes any default padding and style. you might only need one of these values set. -->
+	<style> 
+	body {padding: 0; margin: 0;} 
+	</style>
+	
+</head>
+	
+<body>
+
+	<div class="selectorWrapper">
+<!--<div id="Song">Click to play song</div>-->
+	
+<div><h1 style="padding-top:40px">Press any key to pause - or to restart song</h1>
+		
+</div>
+
+<!--container for song waveform-->
+<div class="container">
+	<div id="myContainersound"></div>
+</div><br>
+		
+		
+<!--container for mic-->
+<div class="container">
+<div id="myContainerdraw"></div>
+</div><br>
+
+	
+	
+<!--markov text button-->
+		
+<div class="container">
+<h2 id='headerMark'></h2>
+<button id='buttonMrk' onclick='genPnP(2)'>Back to Black scrambled lyrics</button>	
+</div>
+</div>		
+
+	<script src="p5.js"></script>
+<script src='jquery-3.2.1.min.js'></script>
+	<script src="p5.sound.min.js"></script>
+<script src="p5.dom.js"></script>
+	<script src='tracery.js'></script>
+<script src="rita-full.min.js"></script>
+	<script src="rita-full.js"></script>
+<script language="javascript" type="text/javascript" src="JS/main.js"></script>	
+
+
+</body>
+	
+</html>
