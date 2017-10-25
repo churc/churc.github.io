@@ -64,27 +64,41 @@ var myp5 = new p5(s, 'myContainersound');
 //////This works to ADD lyrics show when button is pressed
 
 //markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
+//var m = function(p){ 
+//var markov = new RiMarkov(2);
+////var buttonMrk = document.getElementById("headerMark");
+//var buttonMrk = document.getElementById("#buttonMrk")
+//
+//p.genPnP = function(numSentences){
+// $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
+//}
 
+
+ 
 var markov = new RiMarkov(2);
-var buttonMrk = document.getElementById("buttonMrk");
-	
+//var buttonMrk = document.getElementById("headerMark");
+var buttonMrk = document.getElementById("#buttonMrk")
+
 function genPnP(numSentences){
- $('buttonMrk').text(markov.generateSentences(numSentences).join(" "))
+ $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
 }
 
 
 var lyrics = 'He left no time to regret, Kept his dick wet, With his same old safe bet. Me and my head high, And my tears dry, Get on without my guy. You went back to what you knew, So far removed from all that we went through. And I tread a troubled track, My odds are stacked, Ill go back to black. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to, I go back to us. I loved you much. Its not enough, You love blow and I love puff, And life is like a pipe. And Im a tiny penny rolling up the walls inside. We only said goodbye with words. I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. Black, black, black, black, black, black, black. I go back to, I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to black.'
 
 markov.loadText(lyrics)
-
-document.getElementById("#buttonMrk")
+$('#headerMark').text(genPnP)
+//};
+//var myp5 = new p5(m,'headerMark');
+	
+//var buttonMrk = document.getElementById("#buttonMrk")
 
 //$(function(){
 //$('#buttonMrk').click(function(event) {
 //  genPnP();
 //});
 //$("#myContainerdraw").click(function(){
-//        t();
+//        p();
 //       event.stopImmediatePropagation();
 //    });    
 //});
