@@ -66,25 +66,29 @@ var myp5 = new p5(s, 'myContainersound');
 //markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
 
 var markov = new RiMarkov(2);
-//var buttonMrk = document.getElementById("buttonMrk");
+var buttonMrk = document.getElementById("buttonMrk");
+	
 function genPnP(numSentences){
  $('buttonMrk').text(markov.generateSentences(numSentences).join(" "))
 }
+
+
 var lyrics = 'He left no time to regret, Kept his dick wet, With his same old safe bet. Me and my head high, And my tears dry, Get on without my guy. You went back to what you knew, So far removed from all that we went through. And I tread a troubled track, My odds are stacked, Ill go back to black. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to, I go back to us. I loved you much. Its not enough, You love blow and I love puff, And life is like a pipe. And Im a tiny penny rolling up the walls inside. We only said goodbye with words. I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. Black, black, black, black, black, black, black. I go back to, I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to black.'
 
 markov.loadText(lyrics)
-$('#buttonMrk').text(genPnP)
 
-//function buttonMrk(){
-// document.getElementById("buttonMrk").innerHTML=genPnP();
-//}
+document.getElementById("#buttonMrk")
 
-//function keyTyped(){
-//  if(key == ' '){
-//    lyrics.stop()
-//    lyrics.play()
-//  }
-//}
+//$(function(){
+//$('#buttonMrk').click(function(event) {
+//  genPnP();
+//});
+//$("#myContainerdraw").click(function(){
+//        t();
+//       event.stopImmediatePropagation();
+//    });    
+//});
+
 
 
 
@@ -97,7 +101,7 @@ var state = 0; // mousePress will increment from Record, to Stop, to Play
 
 p.setup = function() {
 //  myCanvas2 =
-	  p.createCanvas(1025,280);
+p.createCanvas(1025,280);
 // myCanvas2.parent('myContainerdraw');
 p.background(200);
   p.fill(0);
