@@ -92,8 +92,8 @@ function genPnP(numSentences){
 var lyrics = 'He left no time to regret, Kept his dick wet, With his same old safe bet. Me and my head high, And my tears dry, Get on without my guy. You went back to what you knew, So far removed from all that we went through. And I tread a troubled track, My odds are stacked, Ill go back to black. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to, I go back to us. I loved you much. Its not enough, You love blow and I love puff, And life is like a pipe. And Im a tiny penny rolling up the walls inside. We only said goodbye with words. I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. Black, black, black, black, black, black, black. I go back to, I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to black.'
 
 markov.loadText(lyrics)
-$('#headerMark').text(genPnP)
-
+$('#headerMark').text(genPnP(2))
+///need to have number in genPnP(2)
 //};
 //var myp5 = new p5(m,'headerMark');
 	
@@ -101,9 +101,16 @@ $('#headerMark').text(genPnP)
 
 $(document).ready(function(){
 $('#buttonMrk').click(function(event){
-  genPnP();
+//	console.log("hello") //remember number
+  genPnP(2);
 })
 });
+	
+//$(document).ready(function(){
+//$('#buttonMrk').click(function(event){
+//  genPnP();
+//})
+//});
 	
 function stopEvent(ev) {
   buttonMrk = document.getElementById("buttonMrk");
