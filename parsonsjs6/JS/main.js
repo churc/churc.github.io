@@ -98,10 +98,26 @@ $('#headerMark').text(genPnP)
 	
 //var buttonMrk = document.getElementById("#buttonMrk")
 
-//$(function(){
-//$('#buttonMrk').click(function(event) {
-//  genPnP();
-//});
+$(document).ready(function(){
+$('#buttonMrk').click(function(event){
+  genPnP();
+})
+});
+	
+function stopEvent(ev) {
+  buttonMrk = document.getElementById("buttonMrk");
+//  buttonMrk.innerHTML = "hello";
+
+
+  ev.stopPropagation();
+//  alert("event propagation halted.");
+}
+//
+function load() {
+  elem = document.getElementById("t");
+  elem.addEventListener("click", stopEvent, false);
+}	
+	
 //$("#myContainerdraw").click(function(){
 //        p();
 //       event.stopImmediatePropagation();
@@ -181,8 +197,9 @@ p.mousePressed = function() {
     p.saveSound(soundFile, 'mySound.wav'); // save file
     state++;
   }
+	return false;
 }
 };
 var myp5 = new p5(t, 'myContainerdraw');
-});
+})
 
