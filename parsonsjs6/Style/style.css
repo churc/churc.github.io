@@ -76,6 +76,16 @@ header{
 	text-align: center;
 	justify-content: center;
 }
+headerMark{
+	color: aliceblue;
+	font-size: 24px;
+	font-family: "Seravek";
+	width: 1360;
+	height: 300;
+	display: block;
+	text-align: center;
+	justify-content: center;
+}
 
 button{
 	padding: 6px;
