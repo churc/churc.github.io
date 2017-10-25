@@ -61,6 +61,7 @@ p.keyPressed = function(){
 };
 var myp5 = new p5(s, 'myContainersound');
 
+	
 ////// ADD scrambled lyrics when button is pressed
 	//	markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
 	
@@ -126,7 +127,7 @@ function load() {
 
 
 
-///////MIC works to record and play back sound but doesn't can't see myContainersound anymore
+///////MIC works to record and play back sound 
 
 var t = function( p ) { 
 var mic, recorder, soundFile;
