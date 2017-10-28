@@ -31,18 +31,26 @@
 
 <div class="container"> 
 		
-<h1 style= "color: #484948; padding-top: 20px; padding-bottom: 20px; font-size: 22px; text-align: center">The placement of an object or shape may affect the sense of uncertainty</h1>
+<h1 id='testGen' style= "color: #484948; padding-top: 20px; padding-bottom: 20px; font-size: 22px; text-align: center">The placement of an object or shape may affect the sense of uncertainty</h1>
 
-	<button id="buttonGen" onclick="generate()">sentence doubles</button>
+<button id="buttonGen" onclick="generate()">sentence doubles</button>
 </div>
 
 	
 <!-- WORKS RANDOM artnames text on reload-->	
-<div class = container id="names">
+<!--
+/*
+	<div class = container id="names">
 	<h4 id='headerNm' class='artnames' style='font-size: 26px'>
 	</h4>
 </div>
+*/
+-->
 	
+	<div class = container id="names">
+	<h1 id='headerNm' class='artNam artnames' style='font-size: 26px'>
+	</h1>
+</div>
 	
 <!-- WORKS RANDOM image on reload-->
 <div class="container" id="canvas" style='padding-top: none;' >
@@ -64,9 +72,10 @@
 	
 <!--markov - working-->	
 <div class="container">
-	
-<h2 id='headerMark'></h2>
-		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>		
+
+<!--still issue with h1 working differently with different buttons where h1 is specified, if i press the button sentence doubles the text also loads on the markov h1 text-->
+<h1 id='headerMark'></h1>
+		<button id="buttonMrk" onclick="genPnP(2)">check out the text</button>	
 </div>
 <p style="padding:35px"></p>
 
@@ -74,11 +83,18 @@
 <!--random rhymes w rita -->
 
 <div class="container">
-		
-<h3 id="1" style='font-size: 16px; font-color:orange'>Or a piece of art is </h3>	
+	
+<div id="one">Or a piece of art is </div>	
+<span><div id="two">A work of art is </div></span>
+<button id="buttonRta" onclick="writing()">make a rhyme</button>	
+	
+	
+<!--
+<h1 id="1" style='font-size: 16px; font-color:orange'>Or a piece of art is </h1>	
 <span>
-<h3 id="2">A work of art is </h3></span>
+<h1 id="2">A work of art is </h1></span>
 	<button id="buttonRta" onclick="writing()">make a rhyme</button>
+-->
 	<p style="padding:18px"></p>
 	</div>
 

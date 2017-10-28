@@ -7,14 +7,17 @@ var grammar =tracery.createGrammar(grammarObj)
 
 function generate(){
 	var t = grammar.flatten("#S#");
-	$('h1').text(t);
-}
+	$('#testGen').text(t);
+	}
+	// the above is jQuery, the same in js, plain js // or vanilla js
+	// document.getElementById('test');
 
 
-//////
-function buttonGen(){
-  document.getElementById("gen").innerHTML=generate;
-}
+
+////////
+//function buttonGen(){
+//  document.getElementById("gen").innerHTML=generate;
+//}
 
 ////THIS works to move button
 
@@ -34,6 +37,7 @@ var artworks =  ["https://www.moma.org/media/W1siZiIsIjM0NzQ2NiJdLFsicCIsImNvbnZ
 
 
 var artImg = choice(artworks)
+
 $('#headerImg').attr('src', artImg)
 
 function choice(arr){
@@ -54,9 +58,6 @@ function choice(arr){
 
 //MENU CHANGE works
 
-{function myFunction(){
-  
-}
 $('nav span').hover(function(){
   console.log($(this).css('color'))
   if($(this).css('color') == 'deepskyblue'){
@@ -78,20 +79,27 @@ $('nav span').click(function(){
 
 function choice(arr){
   return arr[Math.floor(Math.random() * arr.length)]
-}}
+}
 
 
 
 //markov works
+//var markov = new RiMarkov(2);
+//
+//
+//function genPnP(numSentences){
+// $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
+//}
+var markovtext = 'Lines, Grids, Stains, Words presents drawings from the 1960s to the present that conflate the simple and seemingly impersonal formal and compositional vocabularies of Minimal art with references to the physical and the bodily. Concerned with issues of scale and perception rather than content, Minimal art often utilizes industrial fabrication techniques and materials, and its hallmark compositional strategies include straight lines and geometric forms organized in rows, grids, and sequences. But Minimal art’s relation to the body, while ever present in the medium of sculpture, is often difficult to discern in studies, sketches, and other related works on paper. This exhibition traces the ways in which remnants of the physical can be found in Minimalist works on paper, beginning in the early 1960s, when the formal conventions were defined and tested, and follows the applications of these vocabularies in reference to the body through the present day. On Line explores the radical transformation of the medium of drawing throughout the twentieth century, a period when numerous artists subjected the traditional concepts of drawing to a critical examination and expanded the mediums definition in relation to gesture and form. In a revolutionary departure from the institutional definition of drawing, and from the reliance on paper as the fundamental support material, artists instead pushed line across the plane into real space, thus questioning the relation between the object of art and the world. On Line includes approximately three hundred works that connect drawing with selections of painting, sculpture, photography, film, and dance, represented by film and documentation. In this way, the exhibition makes the case for a discursive history of mark making, while mapping an alternative project of drawing in the twentieth century.'
+
 var markov = new RiMarkov(2);
 
 
 function genPnP(numSentences){
- $('h2').text(markov.generateSentences(numSentences).join(" "))
+ $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
 }
-var text = 'Lines, Grids, Stains, Words presents drawings from the 1960s to the present that conflate the simple and seemingly impersonal formal and compositional vocabularies of Minimal art with references to the physical and the bodily. Concerned with issues of scale and perception rather than content, Minimal art often utilizes industrial fabrication techniques and materials, and its hallmark compositional strategies include straight lines and geometric forms organized in rows, grids, and sequences. But Minimal art’s relation to the body, while ever present in the medium of sculpture, is often difficult to discern in studies, sketches, and other related works on paper. This exhibition traces the ways in which remnants of the physical can be found in Minimalist works on paper, beginning in the early 1960s, when the formal conventions were defined and tested, and follows the applications of these vocabularies in reference to the body through the present day. On Line explores the radical transformation of the medium of drawing throughout the twentieth century, a period when numerous artists subjected the traditional concepts of drawing to a critical examination and expanded the mediums definition in relation to gesture and form. In a revolutionary departure from the institutional definition of drawing, and from the reliance on paper as the fundamental support material, artists instead pushed line across the plane into real space, thus questioning the relation between the object of art and the world. On Line includes approximately three hundred works that connect drawing with selections of painting, sculpture, photography, film, and dance, represented by film and documentation. In this way, the exhibition makes the case for a discursive history of mark making, while mapping an alternative project of drawing in the twentieth century.'
 
-markov.loadText(text)
+markov.loadText(markovtext)
 $('#headerMark').text(genPnP)
 
 function buttonMrk(){
@@ -119,16 +127,16 @@ var randWord;
 function writing() {
   randWord = RiTa.randomWord('nn')
   while(RiTa.rhymes(randWord).length<1){
-    randWord = RiTa.randomWord('nn')
-	
-	  
+    randWord = RiTa.randomWord('nn')  
   }
-  $('#1').text('A work of art is ' + randWord)
-  $('#2').text('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
+	
+  $('#one').text('A work of art is ' + randWord)
+  $('#two').text('Or a piece of art is ' + RiTa.randomItem(RiTa.rhymes(randWord))) 
 }
-function buttonRta(){
- document.getElementById("Rta").innerHTML=writing;
-}
+//not needed
+//function buttonRta(){
+//// document.getElementById("Rta").innerHTML=writing;
+//}
 
 
 
