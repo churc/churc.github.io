@@ -54,13 +54,17 @@ h2{
 }
 
 #myContainersound{
+/*
 	width: 1360;
 	height: 300;	
+*/
 }
 
 #myContainerdraw{
+/*
 	width: 1360;
 	height: 300;
+*/
 	background-color: 230;
 	padding: 20px;
 }
@@ -70,8 +74,10 @@ header{
 	color: aliceblue;
 	font-size: 24px;
 	font-family: "Seravek";
+/*
 	width: 1360;
 	height: 300;
+*/
 	display: block;
 	text-align: center;
 	justify-content: center;
@@ -80,8 +86,10 @@ headerMark{
 	color: aliceblue;
 	font-size: 24px;
 	font-family: "Seravek";
+/*
 	width: 1360;
 	height: 300;
+*/
 	display: block;
 	text-align: center;
 	justify-content: center;
