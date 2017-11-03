@@ -65,21 +65,6 @@ $(document).ready(function(){
 	////// ADD scrambled lyrics when button is pressed
 		//	markov works Amy Winehouse lyrics  Mark Ronson, Amy Winehouse Back To Black
 
-	//	this has stopped working - add eventlistener and event.stopImmediatePropagation()
-
-	//ADDING function greyed out just below does not help
-	/*
-		//var m = function(p){ 
-	//var markov = new RiMarkov(2);
-	////var buttonMrk = document.getElementById("headerMark");
-	//var buttonMrk = document.getElementById("#buttonMrk")
-	//
-	//p.genPnP = function(numSentences){
-	// $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
-	//}
-	*/
-
-
 	var markov = new RiMarkov(2);
 
 	var buttonMrk = document.getElementById("#buttonMrk")
@@ -88,93 +73,123 @@ $(document).ready(function(){
 		 $('#headerMark').text(markov.generateSentences(numSentences).join(" "))
 		}
 
-
 		var lyrics = 'He left no time to regret, Kept his dick wet, With his same old safe bet. Me and my head high, And my tears dry, Get on without my guy. You went back to what you knew, So far removed from all that we went through. And I tread a troubled track, My odds are stacked, Ill go back to black. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to, I go back to us. I loved you much. Its not enough, You love blow and I love puff, And life is like a pipe. And Im a tiny penny rolling up the walls inside. We only said goodbye with words. I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. Black, black, black, black, black, black, black. I go back to, I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to. We only said goodbye with words, I died a hundred times. You go back to her, And I go back to black.'
 
 		markov.loadText(lyrics)
-			$('#headerMark').text(genPnP(2))
-			///need to have number in genPnP(2)
+		$('#headerMark').text(genPnP(2))
+		///note - need to have number in genPnP(2)
+
+		//var buttonMrk = document.getElementById("#buttonMrk")
+
+	//	$(document).ready(function(){
+		$('#buttonMrk').click(function(event){
+		//	console.log("hello") //remember number
+		  genPnP(2);
+		})
+	//	});
+
+		//$(document).ready(function(){
+		//$('#buttonMrk').click(function(event){
+		//  genPnP();
+		//})
+		//});
+	/*
+		function stopEvent(ev) {
+		  buttonMrk = document.getElementById("buttonMrk");
+		//  buttonMrk.innerHTML = "hello";
 
 
-			$('#buttonMrk').click(function(event){
-				genPnP(2);
-			})
+		  ev.stopPropagation();
+		//  alert("event propagation halted.");
+		}
+		//
+		function load() {
+		  elem = document.getElementById("t");
+		  elem.addEventListener("click", stopEvent, false);
+		}	
 
+		//$("#myContainerdraw").click(function(){
+		//        p();
+		//       event.stopImmediatePropagation();
+		//    });    
+		//});
+	*/
 
 
 	///////MIC works to record and play back sound 
 
 	var t = function( p ) { 
-		  var mic, recorder, soundFile;
+	var mic, recorder, soundFile;
 
-		  var state = 0; // mousePress will increment from Record, to Stop, to Play
+	var state = 0; // mousePress will increment from Record, to Stop, to Play
 
-		  p.setup = function() {
-		  
-			  p.createCanvas(1025,280);
-			  // myCanvas2.parent('myContainerdraw');
-			  p.background(200);
-			  p.fill(0);
-				p.textSize(18);
-			  p.text('Enable mic and click this grey box to begin recording...', 40, 40);
+	p.setup = function() {
+	//  myCanvas2 =
+		
+	p.createCanvas(1025,280);
+	// myCanvas2.parent('myContainerdraw');
+	p.background(200);
+	  p.fill(0);
+		p.textSize(18);
+	  p.text('Enable mic and click the mouse to begin recording...', 40, 40);
 
-			  // create an audio in
-			  mic = new p5.AudioIn();
+	  // create an audio in
+	  mic = new p5.AudioIn();
 
-			  // users must manually enable their browser microphone for recording to work properly!
-			  mic.start();
+	  // users must manually enable their browser microphone for recording to work properly!
+	  mic.start();
 
-			  // create a sound recorder
-			  recorder = new p5.SoundRecorder();
+	  // create a sound recorder
+	  recorder = new p5.SoundRecorder();
 
-			  // connect the mic to the recorder
-			  recorder.setInput(mic);
+	  // connect the mic to the recorder
+	  recorder.setInput(mic);
 
-			  // create an empty sound file that we will use to playback the recording
-			  soundFile = new p5.SoundFile();
-		}
+	  // create an empty sound file that we will use to playback the recording
+	  soundFile = new p5.SoundFile();
+	}
 
-		p.draw = function() {
-			  // Get the overall volume (between 0 and 1.0)
-			  var vol = mic.getLevel();
-			  p.fill(0,255,255);
-			  p.noStroke();
+	p.draw = function() {
+	  // Get the overall volume (between 0 and 1.0)
+	  var vol = mic.getLevel();
+//	  console.log(vol)
+	  p.fill(0,255,255);
+	  p.noStroke();
 
-			  // Draw an ellipse with height based on volume
-			  var h = p.map(vol, 0, 1, 0, 150);
-			  p.ellipse(p.width/2, p.height/2, 20 + h, 20 + h);
-		}
+	  // Draw an ellipse with height based on volume
+	  var h = p.map(vol, 0, 1, 0, 150);
+	  p.ellipse(p.width/2, p.height/2, 20 + h, 20 + h);
+	}
 
-		$(".container2").on("click", function() {
-			  //getWave();
-			  // use the '.enabled' boolean to make sure user enabled the mic (otherwise we'd record silence)
-		  	   if (state === 0 && mic.enabled) {
+	$(".container2").on("click", function() {
+	//getWave();
+	  // use the '.enabled' boolean to make sure user enabled the mic (otherwise we'd record silence)
+	  if (state === 0 && mic.enabled) {
 
-					// Tell recorder to record to a p5.SoundFile which we will use for playback
-					recorder.record(soundFile);
+		// Tell recorder to record to a p5.SoundFile which we will use for playback
+		recorder.record(soundFile);
 
-					p.background(255,0,0);
-					p.text('Recording now! Click to stop.', 40, 40);
-					state++;
-		  }
+		p.background(255,0,0);
+		p.text('Recording now! Click to stop.', 40, 40);
+		state++;
+	  }
 
-		  else if (state === 1) {
-				recorder.stop(); // stop recorder, and send the result to soundFile
+	  else if (state === 1) {
+		recorder.stop(); // stop recorder, and send the result to soundFile
 
-				p.background(0,255,0);
-				p.fill(0);
-				p.text('Recording stopped. Click to play & save. Reload page to reset.', 40, 40);
-				state++;
-		  }
+		p.background(0,255,0);
+		p.fill(0);
+		p.text('Recording stopped. Click to play & save. Reload page to reset.', 40, 40);
+		state++;
+	  }
 
-		  else if (state === 2) {
-				soundFile.play(); // play the result!
-			  
-				p.saveSound(soundFile, 'mySound.wav'); // save file
-				state++;
-		  }
-			return false;
-		});
+	  else if (state === 2) {
+		soundFile.play(); // play the result!
+		p.saveSound(soundFile, 'mySound.wav'); // save file
+		state++;
+	  }
+		return false;
+	});
 	};
 	var myp5 = new p5(t, 'myContainerdraw');
 })
