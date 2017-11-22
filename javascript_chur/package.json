@@ -1,0 +1,21 @@
+{
+  "name": "clare",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+    },
+  "dependencies": {
+    "async": "~0.2.8",
+    "dotenv": "^4.0.0",
+    "express": "^3.21.2",
+    "jquery": "^3.2.1",
+    "nyt": "^0.1.0",
+    "request": "^2.83.0",
+    "socket.io": "^0.9.19"
+  },
+  "description": "Artists in the NYT",
+  "main": "app.js",
+  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "license": "MIT"
+}
