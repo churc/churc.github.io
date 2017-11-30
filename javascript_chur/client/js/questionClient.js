@@ -1,55 +1,87 @@
-//client js
 
-// socket = socket.io.connect('https://localhost:8000');
-var io;
-var socket;
-socket=io.connect();
-var $ ="";
+///use jQuery on the client side to process the users data entered in the input field
+
+var socket = io();
 
 	//can send things from server to client
 // 	socket.emit('confirmConnection', 'hey ' +socket.id);
-	//specific connection message inside this connection function
-	//here use socket not io as using to one specifc connection so don't use io
+//specific connection message inside this connection function	//here use socket not io as using to one specifc connection so don't use io
 
-//then add to go w/ socket.emit=======
-socket.on('confirmConnection',function(data){
-	console.log('server: ' + data);
-});
-
-
-socket.on('newUser', function(data){
-	console.log(data);
-});
+/////jQuery to process the users data entered in the input field
 
 socket.on('newMsg',function(data){
-	$('#searchField').append('<p><strong>'+data.username+'</p></strong>'+data.text +'</p>');
+	addMsg(data.text, data.msg);
+	addMsg(data.msg);
+	$('input').append('</p><strong>'+data.text+': </strong>'+data.msg +'</p>');
+	$('input').append('</p>'+data.msg +'</p>');
+
+	$('#searchField').append('</p>'+data.msg +'</p>');
+	$('#searchField').append('</p><strong>'+data.text+': </strong>'+data.msg +'</p>');
 });
 
-////// receive msg
-socket.on('addMsg', function(data){	
-	$('#searchResults').append('<p><strong>'+username+':</strong>'+data+'</p>')
-});
+
+$('input').focus();
+$('#searchField').focus();
+
+
     
 //functionality
-function func(){
-$('#submit').click(sendMsg);
+///send data w/ socket.io to server
+
+
+$('submit').click(sendMsg);
 $(document).keyup(function(e){
 	if(e.key == 'Enter'){
 		sendMsg();
     }
 });
-}
+
+
 
 function sendMsg(){
-	var artq = $('#searchField').value();
-	if(artq.length > 0){
-		$('#messages').append('<p><strong>'+username+':</strong>'+artq+'</p>');
-		$('#searchField').value('');
-		socket.emit('newMsg', {username:username, text:artq});
+	var msg = $('input').val();
+	if(msg.length > 0){
+		// $('#messages').append('<p>'+artq+'</p>');
+		// $('#searchField').value('');
+		socket.emit('newMsg', {text:text, msg:msg});
+		socket.emit('newMsg', {msg:msg});
+		addMsg(text, msg);
+		addMsg(msg);
+		$('input').val('');
 	}
 }
 
-        
-//         setTimeout(callback, 1000);
+// function addMsg(msg){
+// 	$('#messages').append("<p>"+msg+"</p>");
+// }
+
+////// receive msg
+///receive the data on the client with a socket.on() handler
+socket.on('addMsg', function(data){	
+	$('#messages').append('<p>'+data+'</p>');
+	console.log("nyt", data.text);
+});
+    
+ 
+////put the article info into the web page with jquery  
+
+function addMsg(msg, data){
+	$('#searchResult').append("<p>"+data+"</p>");
+
+} 
+
+
+//     function addMsg(user, msg){
+// 	$('#messages').append("<p><strong>"+user+": </strong>"+msg+"</p>");
+
+// }    
+function addMsg(msg, data){
+	$('#searchResult').append("<p><strong>"+msg+": </strong>"+data+"</p>");
+
+}    
+
+
+
+//  setTimeout(callback, 1000);
         
 
