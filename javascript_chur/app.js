@@ -1,6 +1,6 @@
 
 // Socket.IO
-var fs = require('fs');
+// var fs = require('fs');
 var request = require('request');
 var express = require('express');
 var app = express();
@@ -22,6 +22,7 @@ app.use('/', function(req, res,next) {
 
 io.sockets.on('connection', newConnection);
 
+var query = [];
 ///////from article search at NYT api https://developer.nytimes.com/ 
     
 request.get({
@@ -29,16 +30,19 @@ request.get({
   qs: {
     'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
     // 'q': "' '",
-    'q': "Gego",
+    // 'q': "Gego",
+    'q': query,
     'sort': "newest",
     'fl': "web_url,pub_date,headline.main",
     'hl': "TRUE",
     
   },
 }, function(err, response, data) {
-  data = JSON.parse(data);
-  console.log(data);
-  
+      data = JSON.parse(data);
+      console.log(data);
+      
+    // newMsg.addEventListener('submit', data);
+      
 });
     
     
@@ -84,13 +88,13 @@ request.get({
 
 //send articles from server to client
      function newConnection(socket){ 
-                console.log('new connection: ' + socket.id)
+                console.log('new connection: ' + socket.id);
                 socket.on('newMsg', newMsg);
                 
                 function newMsg(data){
                     
                     socket.broadcast.emit('newMsg', data);
-                    socket.broadcast.emit('#searchResult').val();
+                    // socket.broadcast.emit('#searchResult').val();
                 }
         
             // app.post("/", function(req,res){
