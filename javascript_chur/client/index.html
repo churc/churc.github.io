@@ -8,7 +8,10 @@
         <link rel="stylesheet" type="text/css" href="/css/style.css">
        
     
-    <style></style>
+    <style>
+    
+
+</style>
      <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -17,7 +20,7 @@
         <script language="javascript" type="text/javascript" src="/js/particles.js"></script>
         <script language="javascript" type="text/javascript" src="/js/questionClient.js"></script>
         <!--<script type="text/javascript" src="config.js"></script>-->
-        <!-- <script language="javascript" type="text/javascript" src="server.js"></script>-->
+        <!-- <script language="javascript" type="text/javascript" src="app.js"></script>-->
 
     </head>
     
@@ -33,22 +36,27 @@
               
             </div>
                 <br>
+                                          
                   <container>
                       <span>
+                          
                   
                     <div id='messages'>
              
                           <form id="searchForm" method="get" action="/">
-                               <input type="text" id="searchField" value="tell me the name of an artist & press submit" name="username"></input>
+                               <input type="text" id="searchField" value="tell me the name of an artist & press submit" ></input>
                                 <input type="submit" id="submit"></input>
                           </form>
                       </span>
                 <br>
                   </container>
                   
-                        <div><h4 id='searchR'>most recent articles the artist appears in:</h4>
-                                <ul id="searchResults" style padding-bottom="20" method="post" action="/">
-                                    <input type="text" id="searchResult" name="username"></input>
+                        <div><h4 id="searchR">most recent articles the artist appears in:</h4>
+                                <!--<ul id="searchResults" style padding-bottom="20" method="post" action="/">-->
+                                <!--    <input type="text" id="searchResult" ></input>-->
+                                
+                                <ul id="searchResult" style padding-bottom="20" method="post" action="/">
+                                   
                                 </ul>
                        </div>
                     
@@ -72,7 +80,7 @@
                              
                 </div>
         </div>
-        
+
   </body>
 </html>                
                 
