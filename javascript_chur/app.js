@@ -1,13 +1,14 @@
 
 // Socket.IO
-// var fs = require('fs');
+var fs = require('fs');
 var request = require('request');
 var express = require('express');
 var app = express();
+var path = require('path');
 
 var server = app.listen(process.env.PORT || 8000);
 app.use(express.static("client"));
-
+app.use(express.static(path.resolve(__dirname, 'client')));
 var socket = require('socket.io');
 var io = socket.listen(server);
 var NYT = require("nyt");
@@ -35,11 +36,12 @@ request.get({
     'sort': "newest",
     'fl': "web_url,pub_date,headline.main",
     'hl': "TRUE",
-    
   },
 }, function(err, response, data) {
       data = JSON.parse(data);
       console.log(data);
+      
+    //   data.pipe(fs.createWriteStream('newMsg'));
       
     // newMsg.addEventListener('submit', data);
       
