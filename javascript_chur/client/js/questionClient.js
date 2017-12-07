@@ -8,7 +8,7 @@ var socket = io();
 //functionality listen for click function
 ///send data w/ socket.io to server
 
-// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})
+// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})  /// look at this re clearing message
 
 	$('#submit').click(function() {   //listen for click on submit button
 			sendMsg();
@@ -24,17 +24,18 @@ var socket = io();
 			console.log('does this');
 			var msg = $('input').val();
 			if(msg.length > 0){
-				socket.emit('newMsg', {msg:msg});
-				console.log('sending message');
-				// $('input').val('');
+				// socket.emit('newMsg', {msg});
+					socket.emit('newMsg', msg);   ////sending query to server
+				console.log(msg, 'sending message');  ///check this is it sending the query
+		
 				}
 		}
 
-///listen for message back from server query to nyt & add to webpage
-socket.on('newMsg',function(data){
-		function addMsg(data){
+///listen for new message back from server query to nyt & add to webpage
+socket.on('newMsg', function(data){  ///listening for info from server
+		// function addMsg(data){
                         console.log(data);
-                        
+    
                         var articles = data.parameters.qs.fl[0,9];
 	                        for(var i = 0; i < articles.length; i ++ ) {
 			                    var artist = articles[i];
@@ -48,7 +49,7 @@ socket.on('newMsg',function(data){
 			           	$('#searchResult').append('<h3>'+artistHTML+'</h3>');   ////put the article info into the web page with jquery  
 
 					}
-				}
+				// }
 			});
 
 
