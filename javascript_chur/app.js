@@ -1,6 +1,6 @@
 
 // Socket.IO
-var fs = require('fs');
+// var fs = require('fs');
 var request = require('request');
 var express = require('express');
 var app = express();
@@ -12,42 +12,59 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 var socket = require('socket.io');
 var io = socket.listen(server);
 var NYT = require("nyt");
-// var jquery = require("jquery");
 
 
 app.use('/', function(req, res,next) {  
     res.send(__dirname + '/client/index.html');
 });
 
-
-
 io.sockets.on('connection', newConnection);
 
-var query = [];
-///////from article search at NYT api https://developer.nytimes.com/ 
-    
-request.get({
-  url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
-  qs: {
-    'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
-    // 'q': "' '",
-    // 'q': "Gego",
-    'q': query,
-    'sort': "newest",
-    'fl': "web_url,pub_date,headline.main",
-    'hl': "TRUE",
-  },
-}, function(err, response, data) {
-      data = JSON.parse(data);
-      console.log(data);
+
+///////what want returned from article search at NYT api https://developer.nytimes.com/ 
+var parameters = {                          ///do i need to put + to join the parts
+                //   url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+                  url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?",
+
+                  qs: {
+                    'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
+                    'q': " ",     ////refer to query entered in searchField - this is a string 
+                    'sort': "newest",
+                    'fl': "web_url,pub_date,headline.main",
+                    'hl': "TRUE",
+             },
+        };   
+
+      console.log('what', parameters);
       
-    //   data.pipe(fs.createWriteStream('newMsg'));
-      
-    // newMsg.addEventListener('submit', data);
-      
-});
-    
-    
+//listen for query from client, query api, send articles from server to client
+
+     function newConnection(socket){ 
+                console.log('new connection: ' + socket.id);   ///listen for message from client
+                
+                    socket.on('newMsg', newMsg);  ///takes in 'newMsg' from the client and after comma put the name of the next function (here newMsg)
+	                function newMsg(data){         /////passes info from newMsg to data
+                            console.log('received', data);
+                            
+                            parameters.qs.q = data;  ///attach data to q within the parameters search
+                            
+                            request.get(parameters, function(err, response, data) {    ///put request within the received message function
+                                     if (err) {
+                                         return err;
+                                     }
+                                    ///gives an array of events
+                                    // var answer = JSON.parse(data);
+                                        answer = JSON.parse(data);
+                                        for (var i in answer.response.docs) {
+        	                                    console.log(JSON.stringify(answer.response.docs[i]));
+        	                                     socket.emit(JSON.stringify(newMsg, answer.response.docs[i]));
+                                        }
+                                    // socket.emit(newMsg, answer.response.docs[0]);    ///send answer from nyt api to client again within function
+                            
+                            }); 
+                    }
+
+            }    
 
 ///////former jquery nyt request\\\\\\\\\\\\\\\\\\\\
 
@@ -88,18 +105,4 @@ request.get({
 // };
 ////////////////////
 
-//send articles from server to client
-     function newConnection(socket){ 
-                console.log('new connection: ' + socket.id);
-                socket.on('newMsg', newMsg);
-                
-                function newMsg(data){
-                    
-                    socket.broadcast.emit('newMsg', data);
-                    // socket.broadcast.emit('#searchResult').val();
-                }
-        
-            // app.post("/", function(req,res){
-            //   res.send('addMsg: ' +req.body.data);
-            // });
-     }
+
