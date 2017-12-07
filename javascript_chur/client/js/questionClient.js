@@ -8,12 +8,11 @@ var socket = io();
 //functionality listen for click function
 ///send data w/ socket.io to server
 
-// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})  /// look at this re clearing message
+// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})  /// look at this regarding clearing message
 
 	$('#submit').click(function() {   //listen for click on submit button
 			sendMsg();
 		});
-	// $(document).keyup(function(e){  
 		$('#submit').keyup(function(e){   //listen for key up on submit button
 			if(e.key == 'Enter'){
 				sendMsg();
@@ -24,19 +23,20 @@ var socket = io();
 			console.log('does this');
 			var msg = $('input').val();
 			if(msg.length > 0){
-				// socket.emit('newMsg', {msg});
 					socket.emit('newMsg', msg);   ////sending query to server
-				console.log(msg, 'sending message');  ///check this is it sending the query
-		
+					
+				console.log(msg, 'sending message');  ///check that this is it sending the query
 				}
-		}
+			}
 
-///listen for new message back from server query to nyt & add to webpage
-socket.on('newMsg', function(data){  ///listening for info from server
-		// function addMsg(data){
-                        console.log(data);
-    
-                        var articles = data.parameters.qs.fl[0,9];
+			///listen for new message back from server query to nyt & add to webpage
+	socket.on('newMsg', function(data){  ///listening for info from server
+                        console.log('receiving answer', data);
+                        
+                            	var articles = data;
+
+    						// var articles = data.parameters.qs.fl;
+                        // var articles = data.parameters.qs.fl[0,9];
 	                        for(var i = 0; i < articles.length; i ++ ) {
 			                    var artist = articles[i];
 			                    var artistHTML = '<li>';
