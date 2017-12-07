@@ -22,28 +22,25 @@ io.sockets.on('connection', newConnection);
 
 
 ///////what want returned from article search at NYT api https://developer.nytimes.com/ 
-var parameters = {                          ///do i need to put + to join the parts
-                //   url: "https://api.nytimes.com/svc/search/v2/articlesearch.json",
+
+var parameters = {                          
                   url: "https://api.nytimes.com/svc/search/v2/articlesearch.json?",
+                      qs: {
+                        'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
+                        'q': " ",                ////refer to query entered in searchField - this is a string 
+                        'sort': "newest",
+                        'fl': "web_url,pub_date,headline.main",
+                        'hl': "TRUE",
+                 },
+            };   
 
-                  qs: {
-                    'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
-                    'q': " ",     ////refer to query entered in searchField - this is a string 
-                    'sort': "newest",
-                    'fl': "web_url,pub_date,headline.main",
-                    'hl': "TRUE",
-             },
-        };   
-
-      console.log('what', parameters);
-      
 //listen for query from client, query api, send articles from server to client
 
      function newConnection(socket){ 
-                console.log('new connection: ' + socket.id);   ///listen for message from client
+                console.log('new connection: ' + socket.id);    ///listen for message from client
                 
-                    socket.on('newMsg', newMsg);  ///takes in 'newMsg' from the client and after comma put the name of the next function (here newMsg)
-	                function newMsg(data){         /////passes info from newMsg to data
+                    socket.on('newMsg', newMsg);    ///takes in 'newMsg' from the client and after comma put the name of the next function (here newMsg)
+	                function newMsg(data){          /////passes info from newMsg to data
                             console.log('received', data);
                             
                             parameters.qs.q = data;  ///attach data to q within the parameters search
@@ -52,12 +49,13 @@ var parameters = {                          ///do i need to put + to join the pa
                                      if (err) {
                                          return err;
                                      }
-                                    ///gives an array of events
-                                    // var answer = JSON.parse(data);
+                                                    ///gives an array of events
+                                    
                                         answer = JSON.parse(data);
                                         for (var i in answer.response.docs) {
-        	                                    console.log(JSON.stringify(answer.response.docs[i]));
-        	                                     socket.emit(JSON.stringify(newMsg, answer.response.docs[i]));
+        	                                    console.log(JSON.stringify(answer.response.docs[i]));  
+        	                                    
+        	                                     socket.emit('newMsg', answer.response.docs[i]);
                                         }
                                     // socket.emit(newMsg, answer.response.docs[0]);    ///send answer from nyt api to client again within function
                             
