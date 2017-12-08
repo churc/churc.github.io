@@ -1,6 +1,4 @@
-
 // Socket.IO
-// var fs = require('fs');
 var request = require('request');
 var express = require('express');
 var app = express();
@@ -29,7 +27,7 @@ var parameters = {
                         'api-key': "b86baf3cfd7d4f32a4285b22aa4c327b",
                         'q': " ",                ////refer to query entered in searchField - this is a string 
                         'sort': "newest",
-                        'fl': "web_url,pub_date,headline.main",
+                        'fl': "web_url,pub_date,headline",
                         'hl': "TRUE",
                  },
             };   
@@ -39,68 +37,23 @@ var parameters = {
      function newConnection(socket){ 
                 console.log('new connection: ' + socket.id);    ///listen for message from client
                 
-                    socket.on('newMsg', newMsg);    ///takes in 'newMsg' from the client and after comma put the name of the next function (here newMsg)
-	                function newMsg(data){          /////passes info from newMsg to data
+                    socket.on('newMsg', newMsg);                ///takes in 'newMsg' from the client and after comma put the name of the next function (here newMsg)
+	                function newMsg(data){                      /////passes info from newMsg to data
                             console.log('received', data);
                             
-                            parameters.qs.q = data;  ///attach data to q within the parameters search
+                            parameters.qs.q = data;             ///attach data to q within the parameters search
                             
                             request.get(parameters, function(err, response, data) {    ///put request within the received message function
                                      if (err) {
                                          return err;
                                      }
-                                                    ///gives an array of events
-                                    
-                                        answer = JSON.parse(data);
-                                        for (var i in answer.response.docs) {
-        	                                    console.log(JSON.stringify(answer.response.docs[i]));  
+                                                                ///gives an array of events
+                                       answer = JSON.parse(data);
+                                        
+        	                           console.log(JSON.stringify(answer.response.docs));  
         	                                    
-        	                                     socket.emit('newMsg', answer.response.docs[i]);
-                                        }
-                                    // socket.emit(newMsg, answer.response.docs[0]);    ///send answer from nyt api to client again within function
-                            
-                            }); 
-                    }
-
-            }    
-
-///////former jquery nyt request\\\\\\\\\\\\\\\\\\\\
-
-// var loadData = function (e){
-//      e.preventDefault();
-
-//     var query = $('input').val();
-//     var query = $('#searchField').val();
-    
-//     var $artistResults = $('#searchResult');
-    
-//         //clear data for each search
-//         $artistResults.text("");
-
-// var url = 'https://api.nytimes.com/svc/search/v2/articlesearch.json?q='+ query + '?sort=newest&api-key=b86baf3cfd7d4f32a4285b22aa4c327b';
-            
-//      $.getJSON(url, function(data){       
-//               var articles = data.response.docs;
-    
-//                  for(var i = 0; i < articles.length; i ++ ) {
-//                 // for(var i = 0; i < 10; i ++ ) {
-//                     var artist = articles[i];
-//                     var artistHTML = '<li>';
-//                         artistHTML += '<a href = "' + artist.web_url + '">';
-//                         artistHTML += '</a>';
-//                         artistHTML += '<p>'+ artist.pub_date +'</p>';
-//                         artistHTML += '<p>' + artist.headline.main + '</p>';
-//                         artistHTML += '</li>';
-             
-//                 $artistResults.append(artistHTML);
-//             }
-//     })
-            
-//     ('#searchField').addEventListener('submit', loadData);
-    
-//     ('#searchResult').submit(loadData);
-
-// };
-////////////////////
-
-
+        	                           socket.emit('newMsg', answer.response.docs) ///send answer from nyt api to client again within function
+                                              
+                                    }); 
+                                }
+                        }    
