@@ -4,90 +4,56 @@
 var socket = io();
 
 //here use socket not io as using to one specifc connection so don't use io
+//functionality listen for click function ///send data w/ socket.io to server
 
-//functionality listen for click function
-///send data w/ socket.io to server
+// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})  
 
-// $('submit').on('click', function(e){e.preventDefault(); sendMsg()})  /// look at this regarding clearing message
-
-	$('#submit').click(function() {   //listen for click on submit button
+	$('#submit').click(function() { 					//listen for click on submit button
 			sendMsg();
 		});
-		$('#submit').keyup(function(e){   //listen for key up on submit button
+		$('#submit').keyup(function(e){ 				//listen for key up on submit button
 			if(e.key == 'Enter'){
 				sendMsg();
 		    }
 		});
 
 		function sendMsg(){
-			console.log('does this');
+			// console.log('does this');
 			var msg = $('input').val();
+			
 			if(msg.length > 0){
 					socket.emit('newMsg', msg);   ////sending query to server
 					
-				console.log(msg, 'sending message');  ///check that this is it sending the query
+				// console.log(msg, 'sending message');  ///check that this is it sending the query
 				}
-			}
+			$('input').val('');
+		}
 
-			///listen for new message back from server query to nyt & add to webpage
-	socket.on('newMsg', function(data){  ///listening for info from server
-                        console.log('receiving answer', data);
+
+///listen for new message back from server query to nyt & add to webpage
+			
+	socket.on('newMsg', function(data){ 											///listening for info from server
                         
+                        		// console.log(typeof data);
                             	var articles = data;
-
-    						// var articles = data.parameters.qs.fl;
-                        // var articles = data.parameters.qs.fl[0,9];
+                            	
+								$('#searchResult').empty();							///empty searchResult then load new data
+    					
 	                        for(var i = 0; i < articles.length; i ++ ) {
 			                    var artist = articles[i];
+			                    
+			                    var artDate = new Date(artist.pub_date);												
+			                    artDate = (artDate.getMonth() + 1)+"/"+artDate.getDay()+"/"+artDate.getFullYear();    ///return month,day,year
+			                    
 			                    var artistHTML = '<li>';
+			                        
+			                        artistHTML += '<p>'+ artDate +'</p>';
 			                        artistHTML += '<a href = "' + artist.web_url + '">';
-			                        artistHTML += '</a>';
-			                        artistHTML += '<p>'+ artist.pub_date +'</p>';
+			            
 			                        artistHTML += '<p>' + artist.headline.main + '</p>';
+			                        artistHTML += '</a>';
 			                        artistHTML += '</li>';
-			             
-			           	$('#searchResult').append('<h3>'+artistHTML+'</h3>');   ////put the article info into the web page with jquery  
-
+			            
+			           	$('#searchResult').append('<h6>'+artistHTML+'</h6>');   			////put the article info into the web page with jquery  
 					}
-				// }
 			});
-
-
-
-    
-
-// function addMsg(msg){
-// 	$('#messages').append("<p>"+msg+"</p>");
-// }
-
-
-///listen and receive the message from the server with the socket.on() handler
-//and load into the web page 
-	// socket.on('addMsg', function(data){	
-	// 		$('#searchResult').append('<p>'+data+'</p>');
-	// 		console.log("nyt", data);
-	// });
-	    
- 
-////put the article info into the web page with jquery  
-
-// function addMsg(msg, data){
-// 	$('#searchResult').append("<p>"+data+"</p>");
-
-// } 
-
-
-//     function addMsg(user, msg){
-// 	$('#messages').append("<p><strong>"+user+": </strong>"+msg+"</p>");
-
-// }    
-// function addMsg(msg, data){
-// 	$('#searchResult').append("<p><strong>"+msg+": </strong>"+data+"</p>");
-
-// }    
-
-
-
-//  setTimeout(callback, 1000);
-        
-
