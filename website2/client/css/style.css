@@ -1,242 +1,91 @@
 /* ---------- images on top of each other ---------*/
+
 .wrapper{
-  position:relative;  /* top left */
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  padding: 0; 
-  margin: 0;
-  flex-direction: column;  /* wrapper container needs flex-direction*/
-  perspective: 100px;  /* wrapper container needs perspective */
-}
-
-/*@media (max-width:768px){*/
-/*  .wrapper {*/
-/*    width:65%;*/
-/*    font-size: 20px;*/
-/*  }*/
-/*}*/
-/*@media (max-width:480px){*/
-/*  .wrapper{*/
-/*    width:40%;*/
-/*    font-size: 16px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width:768px){*/
-/*  #colName {*/
-/*    width:65%;*/
-/*    font-size: 20px;*/
-/*  }*/
-/*}*/
-/*@media (max-width:480px){*/
-/*   #colName{*/
-/*    width:40%;*/
-/*    font-size: 16px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width:768px){*/
-/*  #details{*/
-/*    width:65%;*/
-/*    font-size: 20px;*/
-/*  }*/
-/*}*/
-/*@media (max-width:480px){*/
-/*  #details{*/
-/*    width:40%;*/
-/*    font-size: 16px;*/
-/*  }*/
-/*}*/
-
-/*@media (max-width:768px){*/
-/*  .choose{*/
-/*    width:65%;*/
-/*    font-size: 20px;*/
-/*  }*/
-/*}*/
-/*@media (max-width:480px){*/
-/*  .choose{*/
-/*    width:40%;*/
-/*    font-size: 16px;*/
-/*  }*/
-/*}*/
-
-
-
-/*div#content  {*/
-/*	font-size: 15px;*/
-/*}*/
-
-/*.edit-link a:before {*/
-/*    content: "";*/
-/*    font-size: 0em;*/
-/*}*/
-
-/*.edit-link a.post-edit-link {*/
-/*    font-size: 0px;*/
-/*    font-weight: normal;*/
-/*}*/
-
-/*div.cv-style ul li {*/
-/*    font-style: normal;*/
-/*    font-weight: normal;*/
-/*}*/
-
-
-/*h3.pagetitle, h3.pagetitle a{*/
-/*	text-transform: uppercase;*/
-/*	text-align: center;*/
-/*	font-weight: normal;*/
-/*}*/
-
-
-
-/* -----------adding cover loading page -------------*/
-
-
-/* -----------name semi transparent and fade out -------------*/
-
-#colName{
-    opacity: 0.9;
-    position: absolute;
-    
+    position:relative;  /* top left */
     margin-left: auto;
     margin-right: auto;
-    
-    top: 40vh;
-    left: 25vw;
-    font-family: "Monoton";
-    text-transform: uppercase;
-    font-size: 6vw;
-    color: #fcd3cc; 
-    transform: skewX(45deg);
-    z-index: 11;
+    width: 100%;
+    padding: 0; 
+    margin: 0;
+    flex-direction: column;  /* wrapper container needs flex-direction*/
+    perspective: 100px;  /* wrapper container needs perspective */
 }
 
+
 /* -----------adding rotating loading page -------------*/
+
 .toBeFaded {
-  display: none;  /* essential for rotation */
-	width: 100%;
-	/*height: auto;*/
-	position: fixed;
-	
-	padding: 0;
-	margin: 0;
-	
-	pointer-events: none;
-	touch-action: none;
+    display: none;  /* essential for rotation */
+  	width: 100%;
+  	position: fixed;
+  	padding: 0;
+  	margin: 0;
+  	pointer-events: none;
+  	touch-action: none;
 }
 
 .move {
-   /* width: 25%;*/
   	width:100%;
-  	/*display: flex;*/
   	display: block;
 }
 
-/*.hide {*/
-/*  display: block;*/
-/*}*/
+.move2 {
+  	display: block;
+}
 
-
-#elem0, #elem1, #elem2, #elem3 #elem4{   /*use commas when specifying each, no commas when following path to element*/
+#elem0, #elem1, #elem2, #elem3, #elem4, #elem5{   /*use commas when specifying each, no commas when following path to element*/
 	width:100%;
 	padding: 0;
 	margin: 0;
 	z-index: 1;
 }
 
-#elem4{
-  pointer-events: none;
-  touch-action: none;
-  touchmove:none;
-  touchstart:none;
-  mouseover: none;
-  mousemove: none;
-  /*image-rendering: pixelated;*/
-  /*width: 150%;*/
-  /*right:-30vw;*/
-  /*top: -38vh;*/
-  /*position: absolute;*/
-  z-index: 1;
-}
 
-
-/* ------select image to go to next page -----*/
+/* ------select image to go to new page -----*/
 
 a:link {
     font-family: Monoton;
-    font-size: 10em;
-    /*position: relative;*/
-  	/*display: block;*/
+    font-size: 8em;
   	margin-left: auto;
     margin-right: auto;
     text-decoration: none;
-    color: purple;
+    color: #939393;
     z-index: 100;
 }
 
 a:-webkit-any-link {
-    /*color: green;*/
     cursor: auto;
-    /*text-decoration: none;*/
-    /*text-decoration-line: underline;*/
-    /*text-decoration-style: initial;*/
-    /*text-decoration-color: green;*/
 }
 
-#detail5 {
-	  /*position: relative;*/
-	  	position: fixed;
-	  	right: 50%;
-	  	
-  	max-width:8%;
-  	transform: skewX(50deg);
-  	z-index: 2;
+a:hover{
+    /*color: #95c130;*/
+    color: #c1bf30; 
 }
 
-.choose {
-  	/*position: relative;*/
-  	
-  	position:absolute;
-  	
-  	
-  	
-  	/*display: block;*/
-  	margin-left: auto;
-    margin-right: auto;
-    margin-top: 20%;
-    margin-bottom: 20%;
+#link2 {
+	position: absolute;  /* needs position absolute to stay in same place in relation to canvas*/
+	left: 58vw;
+  	top: 30vh;  
+    max-width:8%;
+    transform: skewX(50deg);
 }
 
-/*#elem5{*/
-/*  display: inline-block;*/
-/*  position: relative;*/
-/*  transition: transform 1.0s ease-out;*/
-/*  transform: perspective(50em) skewX(45deg);*/
-/*  z-index: 2;*/
-/*}*/
-
-/*.largeDrw{*/
-/*	position: absolute;*/
-/*	position: fixed;*/
-/*	z-index: 1;*/
-/*	width:100%;*/
-/*}*/
+canvas{
+  width: 100%;  /*overide canvas width - increase to full page */
+}
 
 /*---moving image details -----*/
 
 #detail1{
 	  right: 28vw;   /*need viewport  */
-  	top: 55vh;
+  	top: 57vh;
   	max-width:8%;
   	position: absolute;
   	z-index: 7;
 }
 
 #detail2{
-	right: 22vw;
+	  right: 22vw;
   	top: 15vh;
   	max-width:7.5%;
   	position: absolute;
@@ -244,41 +93,233 @@ a:-webkit-any-link {
 }
 
 #detail3{
-	right: 60vw;
-  	width: 10%;
+	  right: 60vw;
   	max-width:10%;
-  	top:67vh;
+  	top:70vh;
   	position: absolute;
-  /*	margin-left: auto;*/  /*don't go full way across to left with auto on*/
-  /*margin-right: auto;*/
   	z-index: 9;
 }
 
 #detail4{
-	right: 30vw;
+	  right: 30vw;
   	max-width:8%;
   	position: absolute;
-  	top: 25vh;
+  	top: 27vh;
   	z-index: 10;
 }
 
-.noHover{
-    pointer-events: none;
+/*---drawings from top to bottom --*/
+
+#detail1a{
+	right: 46vw;   /*need viewport  */
+  	top: 2vh;
+  	max-width:8%;
+  	position: absolute;
+  	opacity: 0.8;
+  	z-index: 10;
+}
+
+#detail2a{
+	right: 56vw;
+  	top: 16vh;
+  	max-width:7.5%;
+  	position: absolute;
+  	opacity: 0.8;
+  	z-index: 10;
+}
+
+#detail3a{
+	right: 54vw;
+	top: 40vh;
+  	max-width:10%;
+  	position: absolute;
+  	opacity: 0.8;
+  	z-index: 10;
+}
+
+#detail4a{
+	right: 60vw;
+    top: 28vh;
+  	max-width:8%;
+  	position: absolute;
+  	opacity: 0.8;
+  	z-index: 10;
+}
+
+/* ----name semi transparent and fade out------*/
+
+#colName{
+    opacity: 0.9;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 40vh;
+    left: 25vw;
+    font-family: "Monoton";
+    text-transform: uppercase;
+    font-size: 6vw;
+    color: #FF7216;
+    transform: skewX(48deg);
+    z-index: 11;
+}
+
+/*----select random artword on click-----*/
+
+#headerWord{
+    font-size: 1em;
+    text-transform: lowercase;
+  	color: #f9f5f2;
+  	padding: 8px;
+  	padding-left: 10px;
+  	padding-right: 10px;
+  	background-color: #c1bf30;
+  	opacity: .85;
+  	border: none;
+  	border-radius: 0.2em;
+  	text-align: center;
+  	left: 54.5vw;
+  	top: 28vh;
+  	position: absolute;
+  	-moz-transition: none;
+   	-o-transition: none;
+   	-webkit-transition: none;
+   	z-index: 2000;
+}
+
+#headerWord:hover {
+    cursor: pointer;
+    background-color: #939393;
+    opacity: 0.7;
+}
+
+#headerWord:active {
+    outline: none;
+    border: none;
+}
+
+#headerWord:focus {
+    outline:0;
+}
+
+/*----pencil move on hover-----*/
+
+#pencilBlue{
+    position: absolute;
+    left: 54.5vw;
+	top: 50vh;
+	display:none;  /*----for random timing fade in-----*/
+	z-index: 3020;
+}
+
+#pencilBlue:hover {
+    cursor: pointer;   /* change pointer */
+    background-color: none;
+}
+
+.rotated {
+    -ms-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg); 
+    -webkit-transform: rotate(-15deg); 
+    -o-transform: rotate(-15deg); 
+    transform: rotate(-15deg);
+    transition: 1s;
+}
+
+.rotated2 {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg); 
+    -webkit-transform: rotate(0deg); 
+    -o-transform: rotate(0deg); 
+    transform: rotate(0deg);
+    transition: 1s;
+}
+
+/*---resume flip on hover-----*/
+
+#resume{
+    position: absolute;
+    left: 55.5vw;
+	top: 63vh;
+	opacity: .85;
+	display:none;
+	z-index: 3;
+}
+
+#resume:hover{
+    cursor: pointer;  
+    background-color: none;
+}
+
+.flip{
+    -moz-transform: rotate(180deg);            
+    -ms-transform: rotate(180deg);            
+    -o-transform: rotate(180deg);            
+    -webkit-transform: rotate(180deg);            
+    transform: rotate(180deg);
+    -moz-transition: -moz-transform 700ms ease;
+    -ms-transition: -ms-transform 700ms ease;
+    -o-transition: -o-transform 700ms ease;
+    -webkit-transition: -webkit-transform 700ms ease;
+    transition: transform 700ms ease;
+}
+
+/*---dashed rectangles appear on random timing-----*/
+
+#square{
+    position: absolute;
+    left: 36vw;
+    top: 23vh;
+    border: 0.16em dashed #707070;
+    border-radius: 0.5em;
+    display:none;
+    width: 17vw;
+    height: 60vh;
+    transition: border-color 0.79s ease-out;
+    z-index: 30;
+}
+
+#square2{
+    position: absolute;
+    left: 16vw;
+    top: 23vh;
+    border: 0.16em dashed #E5D7CC;
+    border-radius: 0.5em;
+    display:none;
+    width: 17vw;
+    height: 60vh;
+    transition: border-color  1.88s ease-out;
+    z-index: 30;
+}
+
+#square3{
+    position: absolute;
+    left: 72vw;
+    top: 23vh;
+    border: 0.16em dashed #E4E4E4;
+    border-radius: 0.5em;
+    display:none;
+    width: 17vw;
+    height: 60vh;
+    z-index: 30;
+}
+
+/*---dashed rectangles change color on random selection-----*/
+
+.color{ 
+    opacity: 0.7;
 }
 
 
 @media (max-width:768px){
-  .wrapper {     /* everything is in wrapper so don't need to add other items */
+  .wrapper {     /* everything is in wrapper */
     width:65%;
     font-size: 20px;
   }
 }
+
 @media (max-width:480px){
   .wrapper{
     width:40%;
     font-size: 16px;
   }
 }
-
-
-	
